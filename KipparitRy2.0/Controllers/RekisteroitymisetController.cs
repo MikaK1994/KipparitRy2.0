@@ -54,12 +54,6 @@ namespace KipparitRy2._0.Controllers
                         case "customername_desc":
                             rekisteroitymiset = rekisteroitymiset.Where(r => r.Asiakkaat.Nimi.Contains(searchString)).OrderByDescending(r => r.Asiakkaat.Nimi);
                             break;
-                        case "Date":
-                            rekisteroitymiset = rekisteroitymiset.Where(r => r.Tilaisuudet.Nimi.Contains(searchString)).OrderBy(r => r.Tilaisuudet.Nimi);
-                            break;
-                        case "Date_desc":
-                            rekisteroitymiset = rekisteroitymiset.Where(r => r.Tilaisuudet.Nimi.Contains(searchString)).OrderByDescending(r => r.Tilaisuudet.Nimi);
-                            break;
                         default:
                             rekisteroitymiset = rekisteroitymiset.Where(r => r.Asiakkaat.Nimi.Contains(searchString)).OrderBy(r => r.Asiakkaat.Nimi);
                             break;
@@ -71,12 +65,6 @@ namespace KipparitRy2._0.Controllers
                     {
                         case "customername_desc":
                             rekisteroitymiset = rekisteroitymiset.OrderByDescending(r => r.Asiakkaat.Nimi);
-                            break;
-                        case "Date":
-                            rekisteroitymiset = rekisteroitymiset.OrderBy(r => r.Tilaisuudet.Nimi);
-                            break;
-                        case "Date_desc":
-                            rekisteroitymiset = rekisteroitymiset.OrderByDescending(r => r.Tilaisuudet.Nimi);
                             break;
                         default:
                             rekisteroitymiset = rekisteroitymiset.OrderBy(r => r.Asiakkaat.Nimi);

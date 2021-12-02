@@ -27,6 +27,8 @@ namespace KipparitRy2._0.Models
         public Nullable<int> JarjestajaID { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy H:mm}")]
         public Nullable<System.DateTime> Pvm { get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Vain nolla ja positiiviset numerot ovat sallittuja.")]
         public Nullable<int> MaxMaara { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
