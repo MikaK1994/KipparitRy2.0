@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using KipparitRy2._0.Models;
+using PagedList;
 
 namespace KipparitRy2._0.Controllers
 {
@@ -15,10 +16,81 @@ namespace KipparitRy2._0.Controllers
         private KipparitRyEntitiesX db = new KipparitRyEntitiesX();
 
         // GET: Rekisteroitymiset
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? pagesize)
         {
-            var rekisteroitymiset = db.Rekisteroitymiset.Include(r => r.Asiakkaat).Include(r => r.Tilaisuudet);
-            return View(rekisteroitymiset.ToList());
+            if (Session["Kayttajanimi"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+
+                ViewBag.LoggedStatus = "In";
+                ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
+
+                ViewBag.CurrentSort = sortOrder;
+                //if-lause vb.pnsp jälkeen = Jos ensimmäinen lause on tosi ? toinen lause toteutuu : jos epätosi, niin tämä kolmas lause toteutuu
+                ViewBag.CustomerNameSortParm = String.IsNullOrEmpty(sortOrder) ? "customername_desc" : "";
+                ViewBag.NameSortParm = sortOrder == "Date" ? "Date_desc" : "Date";
+
+                //Hakufiltterin laitto muistiin
+                if (searchString != null) //tarkistetaan onko käyttäjän antama arvo (esim. kirjain a tai sana villa) eri suuruinen kuin null
+                {
+                    page = 1; //jos a-kirjainta etitään, niin vie sivulle 1 kaikki tuotteet, jossa a-kirjain
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+
+                ViewBag.currentFilter = searchString;
+
+                var rekisteroitymiset = db.Rekisteroitymiset.Include(r => r.Asiakkaat).Include(r => r.Tilaisuudet);
+
+                if (!String.IsNullOrEmpty(searchString)) //Jos hakufiltteri on käytössä, niin käytetään sitä ja sen lisäksi lajitellaan tulokset
+                {
+                    switch (sortOrder)
+                    {
+                        case "customername_desc":
+                            rekisteroitymiset = rekisteroitymiset.Where(r => r.Asiakkaat.Nimi.Contains(searchString)).OrderByDescending(r => r.Asiakkaat.Nimi);
+                            break;
+                        case "Date":
+                            rekisteroitymiset = rekisteroitymiset.Where(r => r.Tilaisuudet.Nimi.Contains(searchString)).OrderBy(r => r.Tilaisuudet.Nimi);
+                            break;
+                        case "Date_desc":
+                            rekisteroitymiset = rekisteroitymiset.Where(r => r.Tilaisuudet.Nimi.Contains(searchString)).OrderByDescending(r => r.Tilaisuudet.Nimi);
+                            break;
+                        default:
+                            rekisteroitymiset = rekisteroitymiset.Where(r => r.Asiakkaat.Nimi.Contains(searchString)).OrderBy(r => r.Asiakkaat.Nimi);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (sortOrder)
+                    {
+                        case "customername_desc":
+                            rekisteroitymiset = rekisteroitymiset.OrderByDescending(r => r.Asiakkaat.Nimi);
+                            break;
+                        case "Date":
+                            rekisteroitymiset = rekisteroitymiset.OrderBy(r => r.Tilaisuudet.Nimi);
+                            break;
+                        case "Date_desc":
+                            rekisteroitymiset = rekisteroitymiset.OrderByDescending(r => r.Tilaisuudet.Nimi);
+                            break;
+                        default:
+                            rekisteroitymiset = rekisteroitymiset.OrderBy(r => r.Asiakkaat.Nimi);
+                            break;
+                    }
+                };
+
+                int pageSize = (pagesize ?? 10); //Tämä palauttaa sivukoon taikka jos pagesize on null, niin palauttaa koon 10 riviä per sivu
+                int pageNumber = (page ?? 1); //int pageNumber on sivuparametrien arvojen asetus. Tämä palauttaa sivunumeron taikka jos page on null, niin palauttaa numeron yksi
+                return View(rekisteroitymiset.ToPagedList(pageNumber, pageSize));
+
+                //var asiakkaats = db.Asiakkaat.Include(a => a.Postitoimipaikat);
+                //return View(asiakkaats.ToList());
+            }
         }
 
         // GET: Rekisteroitymiset/Details/5

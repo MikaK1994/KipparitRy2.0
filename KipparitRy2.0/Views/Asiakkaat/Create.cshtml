@@ -4,14 +4,34 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 
-@using (Html.BeginForm()) 
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-ui-1.13.0.min.js"></script>
+
+    <script type="text/javascript">
+        @**$('#RekisterointiPvm').datetimepicker({ footer: true, modal: false, format: 'dd.mm.yyyy HH:MM', uiLibrary: 'bootstrap4' });*@
+        $(function () {
+            $('.datepicker').datepicker({
+                dateFormat: "yy/mm/dd",
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+}
+
+@*RekisterointiPvm*@
+
+<h2>Lisää</h2>
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Asiakkaat</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -23,7 +43,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Sposti, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Sposti, "Sähköposti", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Sposti, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Sposti, "", new { @class = "text-danger" })
@@ -39,29 +59,30 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PostiID, "PostiID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Postitoimipaikat.Postinumero, "Postitoimipaikka", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("PostiID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PostiID, "", new { @class = "text-danger" })
+                @*@Html.DropDownList("Postinumero", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.DropDownListFor(model => model.Postitoimipaikat.Postinumero, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Postitoimipaikat.Postinumero, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RekisterointiPvm, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RekisterointiPvm, "Liittymispäivä", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RekisterointiPvm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.RekisterointiPvm, new { htmlAttributes = new { @class = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.RekisterointiPvm, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Lisää" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Takaisin listaan", "Index")
 </div>

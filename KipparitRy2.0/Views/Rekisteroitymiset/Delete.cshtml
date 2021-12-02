@@ -4,15 +4,14 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Poista asiakas tilaisuudesta</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Rekisteroitymiset</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Asiakkaat.Nimi)
+            Asiakas
+            @*@Html.DisplayNameFor(model => model.Asiakkaat.Nimi)*@
         </dt>
 
         <dd>
@@ -20,7 +19,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)
+            Tilaisuus
+            @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
         </dt>
 
         <dd>
@@ -29,12 +29,15 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Poista" class="btn btn-danger" /> |
+            @*@Html.ActionLink("Takaisin listaan", "Index")*@
+
+            <a class="btn btn-primary" href="~/Rekisteroitymiset/">Takaisin listaan</a>
         </div>
     }
 </div>

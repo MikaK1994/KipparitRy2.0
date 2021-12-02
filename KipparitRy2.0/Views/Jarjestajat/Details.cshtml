@@ -4,31 +4,28 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Tiedot</h2>
 
 <div>
-    <h4>Jarjestajat</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nimi)
-        </dt>
+        <dt>Järjestäjän nimi @*@Html.DisplayNameFor(model => model.Nimi)*@</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nimi)
-        </dd>
+        <dd>@Html.DisplayFor(model => model.Nimi)</dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)
+            @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
+            Tilaisuus
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tilaisuudet.Nimi)
-        </dd>
+        <dd>@Html.DisplayFor(model => model.Tilaisuudet.Nimi)</dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.JarjestajaID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-success" href="~/Jarjestajat/Edit/@Model.JarjestajaID">Muokkaa</a>
+    <a class="btn btn-primary" href="~/Jarjestajat/">Takaisin listaan</a>
+
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.JarjestajaID }) |*@
+    @*@Html.ActionLink("Back to List", "Index")*@
 </p>

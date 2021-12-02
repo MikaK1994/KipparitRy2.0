@@ -11,7 +11,8 @@ namespace KipparitRy2._0.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tilaisuudet
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,6 +25,7 @@ namespace KipparitRy2._0.Models
         public int TilaisuusID { get; set; }
         public string Nimi { get; set; }
         public Nullable<int> JarjestajaID { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy H:mm}")]
         public Nullable<System.DateTime> Pvm { get; set; }
         public Nullable<int> MaxMaara { get; set; }
     

@@ -11,7 +11,8 @@ namespace KipparitRy2._0.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Postitoimipaikat
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace KipparitRy2._0.Models
         }
     
         public int PostiID { get; set; }
+        [StringLength(5, MinimumLength = 5, ErrorMessage = "Kentt‰ [Postinumero] tarvitsee 5 numeroa")]
+        [RegularExpression(@"^([0-9])+$", ErrorMessage = "Postinumero saa sis‰lt‰‰ vain numeroita!")]
         public string Postinumero { get; set; }
         public string Postitoimipaikka { get; set; }
     
