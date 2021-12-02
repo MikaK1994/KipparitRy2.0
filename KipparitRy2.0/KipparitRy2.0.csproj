@@ -330,6 +330,7 @@
     <Content Include="Views\Postitoimipaikat\Details.cshtml" />
     <Content Include="Views\Postitoimipaikat\Edit.cshtml" />
     <Content Include="Views\Postitoimipaikat\Index.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
