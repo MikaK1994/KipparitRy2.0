@@ -1,0 +1,40 @@
+﻿@model IEnumerable<KipparitRy2._0.Models.Postitoimipaikat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Postitoimipaikat</h2>
+
+<p>
+    <a class="btn btn-primary" href="~/Postitoimipaikat/Create/">Luo uusi postitoimipaikka</a>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Postinumero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postitoimipaikka)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postinumero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postitoimipaikka)
+            </td>
+            <td>
+                <a class="btn btn-primary" href="~/Postitoimipaikat/Edit/@item.PostiID">Muokkaa</a>
+                <a class="btn btn-primary" href="~/Postitoimipaikat/Details/@item.PostiID">Tiedot</a>
+                <a class="btn btn-danger" href="~/Postitoimipaikat/Delete/@item.PostiID">Poista</a>
+            </td>
+        </tr>
+    }
+
+</table>
