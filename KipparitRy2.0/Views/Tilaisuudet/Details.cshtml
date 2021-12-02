@@ -1,0 +1,50 @@
+﻿@model KipparitRy2._0.Models.Tilaisuudet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tilaisuudet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pvm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pvm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxMaara)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxMaara)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jarjestajat1.Nimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jarjestajat1.Nimi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TilaisuusID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -127,8 +127,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AsiakkaatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JarjestajatController.cs" />
     <Compile Include="Controllers\PostitoimipaikatController.cs" />
+    <Compile Include="Controllers\RekisteroitymisetController.cs" />
+    <Compile Include="Controllers\TilaisuudetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -331,6 +335,29 @@
     <Content Include="Views\Postitoimipaikat\Edit.cshtml" />
     <Content Include="Views\Postitoimipaikat\Index.cshtml" />
     <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Asiakkaat\Create.cshtml" />
+    <Content Include="Views\Asiakkaat\Delete.cshtml" />
+    <Content Include="Views\Asiakkaat\Details.cshtml" />
+    <Content Include="Views\Asiakkaat\Edit.cshtml" />
+    <Content Include="Views\Asiakkaat\Index.cshtml" />
+    <Content Include="Views\Jarjestajat\Create.cshtml" />
+    <Content Include="Views\Jarjestajat\Delete.cshtml" />
+    <Content Include="Views\Jarjestajat\Details.cshtml" />
+    <Content Include="Views\Jarjestajat\Edit.cshtml" />
+    <Content Include="Views\Jarjestajat\Index.cshtml" />
+    <Content Include="Views\Rekisteroitymiset\Create.cshtml" />
+    <Content Include="Views\Rekisteroitymiset\Delete.cshtml" />
+    <Content Include="Views\Rekisteroitymiset\Details.cshtml" />
+    <Content Include="Views\Rekisteroitymiset\Edit.cshtml" />
+    <Content Include="Views\Rekisteroitymiset\Index.cshtml" />
+    <Content Include="Views\Tilaisuudet\Create.cshtml" />
+    <Content Include="Views\Tilaisuudet\Delete.cshtml" />
+    <Content Include="Views\Tilaisuudet\Details.cshtml" />
+    <Content Include="Views\Tilaisuudet\Edit.cshtml" />
+    <Content Include="Views\Tilaisuudet\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginModal.cshtml" />
+    <Content Include="Views\Shared\_NavBarLoggedIn.cshtml" />
+    <Content Include="Views\Shared\_NavBarLoggedOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,39 +3,72 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>@ViewBag.Title - Itserekisteröityminen tilaisuuteen</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    @{
+        if (Session["Kayttajanimi"] == null)
+        {
+            Html.RenderPartial("_NavBarLoggedOut");
+        }
+        else
+        {
+            Html.RenderPartial("_NavBarLoggedIn");
+        }
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div class="container">
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-4">
+                        <div class="mb-5 flex-center">
+                            <h4>Seuraa meitä:</h4>
+                            <!-- Facebook -->
+                            <a href="https://fi-fi.facebook.com/porvoonkipparit/" target="_blank" class="fab fa-facebook-square" style="font-size:36px;text-decoration: none" title="Fa"></a>
+                            <!--Instagram-->
+                            <a href="https://www.instagram.com/porvoonkipparit/" target="_blank" class="fab fa-instagram" style="font-size:36px;text-decoration: none" title="Ig"></a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <div class="mb-5 flex-center">
+                            @*<div class="col-7 col-lg-8">
+                                </div>*@
+                            <div class="col-5 col-lg-4">
+                                <ul style="list-style-type:none;">
+                                    <li>@Html.ActionLink("ETUSIVU", "Index", "Home")</li>
+                                </ul>
+                            </div>
+                            <div class="col-7 col-lg-8">
+                            </div>
+                            <div class="col-5 col-lg-4">
+                                <ul style="list-style-type:none;">
+                                    <li>@Html.ActionLink("YHTEYSTIEDOT", "Contact", "Home")</li>
+                                </ul>
+                            </div>
+                            <div class="col-7 col-lg-8">
+                            </div>
+                            <div class="col-5 col-lg-4">
+                                <ul style="list-style-type:none;">
+                                    <li>@Html.ActionLink("TIETOSUOJAILMOITUS", "Privacy", "Home")</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7 col-lg-8">
+                <p>&copy; @DateTime.Now.Year - Itserekisteröityminen tilaisuuteen</p>
+            </div>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

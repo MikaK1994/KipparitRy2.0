@@ -1,0 +1,34 @@
+﻿@model KipparitRy2._0.Models.Rekisteroitymiset
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rekisteroitymiset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Asiakkaat.Nimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asiakkaat.Nimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tilaisuudet.Nimi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RekisterointiID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

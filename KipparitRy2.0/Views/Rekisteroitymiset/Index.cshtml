@@ -1,0 +1,39 @@
+﻿@model IEnumerable<KipparitRy2._0.Models.Rekisteroitymiset>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Asiakkaat.Nimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asiakkaat.Nimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tilaisuudet.Nimi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RekisterointiID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RekisterointiID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RekisterointiID })
+        </td>
+    </tr>
+}
+
+</table>

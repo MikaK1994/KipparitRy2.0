@@ -1,0 +1,51 @@
+﻿@model IEnumerable<KipparitRy2._0.Models.Tilaisuudet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pvm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxMaara)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jarjestajat1.Nimi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pvm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxMaara)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jarjestajat1.Nimi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TilaisuusID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TilaisuusID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TilaisuusID })
+        </td>
+    </tr>
+}
+
+</table>

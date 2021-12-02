@@ -1,0 +1,58 @@
+﻿@model KipparitRy2._0.Models.Logins
+
+@*Modal-tyyppinen ikkuna*@
+<div class="modal fade" id="myModal" role="dialog">
+    @*fade sana tekee ikkunasta feidaavan*@
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Kirjaudu sisään</h1>
+            </div>
+
+            <div class="modal-body">
+                @using (Html.BeginForm("Authorize", "Home", FormMethod.Post))
+                {
+                    <table>
+                        <tr>
+                            <td></td>
+                            @*<td style="text-decoration:underline">Käyttäjä</td>*@
+                        </tr>
+                        <tr>
+                            <td>Käyttäjänimi</td>
+                            <td>&nbsp;@Html.EditorFor(model => model.Kayttajanimi)</td>
+                            @*&nbsp; -teksti tuo pientä väliä otsikon ja syöttötekstin välille, etteivät ole peräkanaa*@
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@Html.ValidationMessageFor(model => model.Kayttajanimi)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(model => model.Salasana)  </td>
+                            <td>&nbsp;@Html.EditorFor(model => model.Salasana)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@Html.ValidationMessageFor(model => model.Salasana)</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label class="field-validation-error">@Html.DisplayFor(model => model.ErrorMessage)</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" name="name" class="btn btn-success" value="Kirjaudu" />
+                                <input type="reset" name="name" class="btn btn-primary" value="Tyhjennä" />
+                            </td>
+                        </tr>
+                    </table>
+                }
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Peruuta</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
