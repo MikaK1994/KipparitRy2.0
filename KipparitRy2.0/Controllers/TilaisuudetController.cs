@@ -124,7 +124,8 @@ namespace KipparitRy2._0.Controllers
             }
             else
             {
-                ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi");
+                //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi");
+                ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
                 return View();
             }
         }
@@ -165,7 +166,8 @@ namespace KipparitRy2._0.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
+                //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
+                ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
                 return View(tilaisuudet);
             }
         }
