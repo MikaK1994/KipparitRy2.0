@@ -169,6 +169,7 @@
     <Compile Include="Models\Postitoimipaikat.cs">
       <DependentUpon>KipparitModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Rekisteroinutasiakas.cs" />
     <Compile Include="Models\Rekisteroitymiset.cs">
       <DependentUpon>KipparitModel.tt</DependentUpon>
     </Compile>

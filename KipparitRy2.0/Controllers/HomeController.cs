@@ -45,9 +45,29 @@ namespace KipparitRy2._0.Controllers
             ViewBag.LoggedStatus = "Out";
             return RedirectToAction("Index", "Home"); //Uloskirjautumisen jälkeen pääsivulle
         }
-        public ActionResult Index()
+        public ActionResult Index(Rekisteroinutasiakas rekisteroinutasiakas)
         {
             ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
+
+            var postit = db.Postitoimipaikat
+            .Select(s => new
+            {
+                Text = s.Postitoimipaikka + ", " + s.Postinumero,
+                Value = s.Postinumero
+            })
+            .ToList();
+            ViewBag.PostiLista = new SelectList(postit, "Value", "Text");
+
+            if (rekisteroinutasiakas.EhdotBox == true)
+            {
+                ViewBag.EhdotBox = "Selected";
+                db.Rekisteroitymiset.Add(rekisteroinutasiakas);
+            }
+            else
+            {
+                ViewBag.EhdotBox = "Not Selected";
+                //viesti näytölle, ettei mene eteenpäin ilman käyttöehtojen hyväksymistä
+            }
             return View();
         }
 
