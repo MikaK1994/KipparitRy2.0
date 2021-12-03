@@ -13,15 +13,15 @@
     <div class="input-group">
         @*Tämä tulostaa paragrafit rinnakkain, eikä erilleen*@
         @*px-1 meinaa, että ympärillä on paddingiä/tilaa*@
-        <p class="px-1">@Html.Label("Etsi asiakkaan nimellä:")</p> @*Otsikko*@
+        <p class="px-1">@Html.Label("Etsi postitoimipaikan nimellä:")</p> @*Otsikko*@
         <p class="px-1">@Html.TextBox("SearchString", ViewBag.currentFilter as string, new { @class = "form-control" })</p> @*Tällä nimellä kontrolleri näkee mitä tekstiboksiin on syötetty *@
         <p class="px-1"><input type="submit" value="Etsi" class="form-control" /></p> @*buttoni*@
     </div>
 }
 
-<p>
+@*<p>
     <a class="btn btn-primary" href="~/Postitoimipaikat/Create/">Luo uusi postitoimipaikka</a>
-</p>
+</p>*@
 <table class="table table-striped">
     <tr>
         <th>
@@ -42,11 +42,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Postinumero)
             </td>
-            <td>
+            @*<td>
                 <a class="btn btn-primary" href="~/Postitoimipaikat/Edit/@item.PostiID">Muokkaa</a>
                 <a class="btn btn-primary" href="~/Postitoimipaikat/Details/@item.PostiID">Tiedot</a>
                 <a class="btn btn-danger" href="~/Postitoimipaikat/Delete/@item.PostiID">Poista</a>
-            </td>
+            </td>*@
         </tr>
     }
 

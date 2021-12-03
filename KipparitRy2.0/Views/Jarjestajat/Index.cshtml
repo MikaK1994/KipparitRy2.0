@@ -28,7 +28,6 @@
         <th>@Html.ActionLink("Nimi", "Index", new { sortOrder = ViewBag.CustomerNameSortParm, currentFilter = ViewBag.currentFilter })</th>
         @*<th>@Html.DisplayNameFor(model => model.Nimi)</th>*@
         @*<th>@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)</th>*@
-        <th>Tilaisuus</th>
         <th></th>
     </tr>
 
@@ -36,7 +35,7 @@
     {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
-            <td>@Html.DisplayFor(modelItem => item.Tilaisuudet.Nimi)</td>
+            @*<td>@Html.DisplayFor(modelItem => item.Tilaisuudet.Nimi)</td>*@
             <td>
                 <a class="btn btn-primary" href="~/Jarjestajat/Edit/@item.JarjestajaID">Muokkaa</a>
                 <a class="btn btn-primary" href="~/Jarjestajat/Details/@item.JarjestajaID">Tiedot</a>
