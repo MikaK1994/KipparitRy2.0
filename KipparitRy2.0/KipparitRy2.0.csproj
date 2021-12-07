@@ -231,6 +231,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\lokorivi.jpg" />
     <Content Include="Models\KipparitModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KipparitModel.edmx</DependentUpon>
@@ -409,6 +410,7 @@
     <Content Include="Views\Shared\_LoginModal.cshtml" />
     <Content Include="Views\Shared\_NavBarLoggedIn.cshtml" />
     <Content Include="Views\Shared\_NavBarLoggedOut.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

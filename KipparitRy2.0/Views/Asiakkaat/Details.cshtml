@@ -13,9 +13,9 @@
         <dt>Sähköposti@*@Html.DisplayNameFor(model => model.Sposti)*@</dt>
         <dd>@Html.DisplayFor(model => model.Sposti)</dd>
         <dt>@Html.DisplayNameFor(model => model.Osoite)</dt>
-        <dd>@Html.DisplayFor(model => model.PostitoimipaikatPostinumero)</dd>
+        <dd>@Html.DisplayFor(model => model.Osoite), @Html.DisplayFor(model => model.Postitoimipaikat.Postinumero), @Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>
         @*<dt>@Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)</dt>
-            <dd>@Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>*@
+        <dd>@Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>*@
         <dt>Liittymispäivä@*@Html.DisplayNameFor(model => model.RekisterointiPvm)*@</dt>
         <dd>@Html.DisplayFor(model => model.RekisterointiPvm)</dd>
     </dl>
