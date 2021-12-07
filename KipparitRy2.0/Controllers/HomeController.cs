@@ -87,6 +87,7 @@ namespace KipparitRy2._0.Controllers
             var postit = db.Postitoimipaikat
             .Select(s => new
             {
+<<<<<<< HEAD
                 Text = s.Postitoimipaikka + ", " + s.Postinumero,
                 Value = s.Postinumero
             })
@@ -106,6 +107,12 @@ namespace KipparitRy2._0.Controllers
         public ActionResult Create([Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,Postinumero,Postitoimipaikka,PostiID,Etunimi,Sukunimi")] Asiakkaat asiakkaat)
         {
             if (ModelState.IsValid)
+=======
+                ViewBag.EhdotBox = "Selected";
+                //db.Rekisteroitymiset.Add(rekisteroinutasiakas);
+            }
+            else
+>>>>>>> d59376c97596ecee68f285a119c987b44a5f2f7b
             {
                 db.Asiakkaat.Add(asiakkaat);
                 db.SaveChanges();
