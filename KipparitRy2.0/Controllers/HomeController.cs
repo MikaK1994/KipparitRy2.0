@@ -12,6 +12,7 @@ namespace KipparitRy2._0.Controllers
     {
 
         private KipparitRyEntitiesX db = new KipparitRyEntitiesX();
+        private Asiakkaat asiakkaat;
 
         public ActionResult Login()
         {
@@ -45,6 +46,7 @@ namespace KipparitRy2._0.Controllers
             ViewBag.LoggedStatus = "Out";
             return RedirectToAction("Index", "Home"); //Uloskirjautumisen jälkeen pääsivulle
         }
+
         public ActionResult Index(Rekisteroinutasiakas rekisteroinutasiakas)
         {
             ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
@@ -58,16 +60,87 @@ namespace KipparitRy2._0.Controllers
             .ToList();
             ViewBag.PostiLista = new SelectList(postit, "Value", "Text");
 
-            if (rekisteroinutasiakas.EhdotBox == true)
+            // Tilaisuus
+            List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
+            ViewBag.TilaisuusID = new SelectList(tilaisuusList, "TilaisuusID", "Nimi");
+
+
+
+            //if (rekisteroinutasiakas.EhdotBox == true)
+            //{
+            //    ViewBag.EhdotBox = "Selected";
+            //    db.Rekisteroitymiset.Add(rekisteroinutasiakas);
+            //}
+            //else
+            //{
+            //    ViewBag.EhdotBox = "Not Selected";
+            //    //viesti näytölle, ettei mene eteenpäin ilman käyttöehtojen hyväksymistä
+            //}
+            return View();
+        }
+
+        // GET: Home/Create
+        public ActionResult Create()
+        {
+            ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
+
+            var postit = db.Postitoimipaikat
+            .Select(s => new
             {
-                ViewBag.EhdotBox = "Selected";
-                db.Rekisteroitymiset.Add(rekisteroinutasiakas);
-            }
-            else
+                Text = s.Postitoimipaikka + ", " + s.Postinumero,
+                Value = s.Postinumero
+            })
+            .ToList();
+            ViewBag.PostiLista = new SelectList(postit, "Value", "Text");
+           
+
+            // Tilaisuus
+            List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
+            ViewBag.TilaisuusID = new SelectList(tilaisuusList, "TilaisuusID", "Nimi");
+
+            return View();       
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,Postinumero,Postitoimipaikka,PostiID,Etunimi,Sukunimi")] Asiakkaat asiakkaat)
+        {
+            if (ModelState.IsValid)
             {
-                ViewBag.EhdotBox = "Not Selected";
-                //viesti näytölle, ettei mene eteenpäin ilman käyttöehtojen hyväksymistä
+                db.Asiakkaat.Add(asiakkaat);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
+
+            //var posti = db.Postitoimipaikat;
+            //IEnumerable<SelectListItem> selectPostiLists = from p in posti
+            //                                               select new SelectListItem
+            //                                               {
+            //                                                   Value = p.PostiID.ToString(),
+            //                                                   Text = p.Postinumero + " " + p.Postitoimipaikka.ToString()
+            //                                               };
+
+            //ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postinumero);
+            //ViewBag.PostiID = new SelectList(selectPostiLists, "Value", "Text", asiakkaat.PostiID);
+            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postitoimipaikat.PostiID);
+
+
+            // Tilaisuus
+            //List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
+            //ViewBag.TilaisuusID = new SelectList(tilaisuusList, "TilaisuusID", "Nimi");
+
+
+
+            //if (rekisteroinutasiakas.EhdotBox == true)
+            //{
+            //    ViewBag.EhdotBox = "Selected";
+            //    db.Rekisteroitymiset.Add(rekisteroinutasiakas);
+            //}
+            //else
+            //{
+            //    ViewBag.EhdotBox = "Not Selected";
+            //    //viesti näytölle, ettei mene eteenpäin ilman käyttöehtojen hyväksymistä
+            //}
             return View();
         }
 
