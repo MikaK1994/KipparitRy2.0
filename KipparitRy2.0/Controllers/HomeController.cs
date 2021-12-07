@@ -61,7 +61,7 @@ namespace KipparitRy2._0.Controllers
             if (rekisteroinutasiakas.EhdotBox == true)
             {
                 ViewBag.EhdotBox = "Selected";
-                db.Rekisteroitymiset.Add(rekisteroinutasiakas);
+                //db.Rekisteroitymiset.Add(rekisteroinutasiakas);
             }
             else
             {
