@@ -10,10 +10,8 @@ namespace KipparitRy2._0.Controllers
 {
     public class HomeController : Controller
     {
-
         private KipparitRyEntitiesX db = new KipparitRyEntitiesX();
-        private Asiakkaat asiakkaat;
-
+        
         public ActionResult Login()
         {
             return View();
@@ -47,6 +45,7 @@ namespace KipparitRy2._0.Controllers
             return RedirectToAction("Index", "Home"); //Uloskirjautumisen jälkeen pääsivulle
         }
 
+        //GET: Home/Index
         public ActionResult Index(Rekisteroinutasiakas rekisteroinutasiakas)
         {
             ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
@@ -64,8 +63,6 @@ namespace KipparitRy2._0.Controllers
             List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
             ViewBag.TilaisuusID = new SelectList(tilaisuusList, "TilaisuusID", "Nimi");
 
-
-
             //if (rekisteroinutasiakas.EhdotBox == true)
             //{
             //    ViewBag.EhdotBox = "Selected";
@@ -79,31 +76,10 @@ namespace KipparitRy2._0.Controllers
             return View();
         }
 
-        // GET: Home/Create
-        public ActionResult Create()
-        {
-            ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
-
-            var postit = db.Postitoimipaikat
-            .Select(s => new
-            {
-                Text = s.Postitoimipaikka + ", " + s.Postinumero,
-                Value = s.Postinumero
-            })
-            .ToList();
-            ViewBag.PostiLista = new SelectList(postit, "Value", "Text");
-           
-
-            // Tilaisuus
-            List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
-            ViewBag.TilaisuusID = new SelectList(tilaisuusList, "TilaisuusID", "Nimi");
-
-            return View();       
-        }
-
+        //POST : Home/Index
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,Postinumero,Postitoimipaikka,PostiID,Etunimi,Sukunimi")] Asiakkaat asiakkaat)
+        public ActionResult Index([Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,Postinumero,Postitoimipaikka,PostiID,Etunimi,Sukunimi,TilaisuusID")] Asiakkaat asiakkaat)
         {
             if (ModelState.IsValid)
             {
@@ -112,16 +88,6 @@ namespace KipparitRy2._0.Controllers
                 return RedirectToAction("Index");
             }
 
-            //var posti = db.Postitoimipaikat;
-            //IEnumerable<SelectListItem> selectPostiLists = from p in posti
-            //                                               select new SelectListItem
-            //                                               {
-            //                                                   Value = p.PostiID.ToString(),
-            //                                                   Text = p.Postinumero + " " + p.Postitoimipaikka.ToString()
-            //                                               };
-
-            //ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postinumero);
-            //ViewBag.PostiID = new SelectList(selectPostiLists, "Value", "Text", asiakkaat.PostiID);
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postitoimipaikat.PostiID);
 
 

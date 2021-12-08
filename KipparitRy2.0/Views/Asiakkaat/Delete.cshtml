@@ -25,9 +25,11 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Poista" class="btn btn-danger" /> |
-            @Html.ActionLink("Takaisin listaan", "Index")
-        </div>
+<div class="form-actions no-color">
+    <input type="submit" value="Poista" class="btn btn-danger" /> |
+    @*@Html.ActionLink("Takaisin listaan", "Index")*@
+
+    <a class="btn btn-primary" href="~/Asiakkaat/">Takaisin listaan</a>
+</div>
     }
 </div>

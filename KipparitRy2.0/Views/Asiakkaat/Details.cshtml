@@ -21,6 +21,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Muokkaa", "Edit", new { id = Model.AsiakasID }) |
-    @Html.ActionLink("Takaisin listaan", "Index")
+    <a class="btn btn-success" href="~/Asiakkaat/Edit/@Model.AsiakasID">Muokkaa</a>
+    <a class="btn btn-primary" href="~/Asiakkaat/">Takaisin listaan</a>
+
+    @*@Html.ActionLink("Muokkaa", "Edit", new { id = Model.AsiakasID }) |
+    @Html.ActionLink("Takaisin listaan", "Index")*@
 </p>
