@@ -83,6 +83,7 @@ namespace KipparitRy2._0.Controllers
         {
             if (ModelState.IsValid)
             {
+                asiakkaat.RekisterointiPvm = DateTime.Now;
                 db.Asiakkaat.Add(asiakkaat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
