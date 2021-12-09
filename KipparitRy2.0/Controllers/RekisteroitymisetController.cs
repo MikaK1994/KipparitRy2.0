@@ -84,24 +84,38 @@ namespace KipparitRy2._0.Controllers
         // GET: Rekisteroitymiset/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Kayttajanimi"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index", "Home");
             }
-            Rekisteroitymiset rekisteroitymiset = db.Rekisteroitymiset.Find(id);
-            if (rekisteroitymiset == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Rekisteroitymiset rekisteroitymiset = db.Rekisteroitymiset.Find(id);
+                if (rekisteroitymiset == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(rekisteroitymiset);
             }
-            return View(rekisteroitymiset);
         }
 
         // GET: Rekisteroitymiset/Create
         public ActionResult Create()
         {
-            ViewBag.AsiakasID = new SelectList(db.Asiakkaat, "AsiakasID", "Nimi");
-            ViewBag.TilaisuusID = new SelectList(db.Tilaisuudet, "TilaisuusID", "Nimi");
-            return View();
+            if (Session["Kayttajanimi"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.AsiakasID = new SelectList(db.Asiakkaat.OrderBy(s => s.Nimi), "AsiakasID", "Nimi");
+                ViewBag.TilaisuusID = new SelectList(db.Tilaisuudet.OrderBy(s => s.Nimi), "TilaisuusID", "Nimi");
+                return View();
+            }
         }
 
         // POST: Rekisteroitymiset/Create
@@ -126,18 +140,25 @@ namespace KipparitRy2._0.Controllers
         // GET: Rekisteroitymiset/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Kayttajanimi"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index", "Home");
             }
-            Rekisteroitymiset rekisteroitymiset = db.Rekisteroitymiset.Find(id);
-            if (rekisteroitymiset == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Rekisteroitymiset rekisteroitymiset = db.Rekisteroitymiset.Find(id);
+                if (rekisteroitymiset == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.AsiakasID = new SelectList(db.Asiakkaat.OrderBy(s => s.Nimi), "AsiakasID", "Nimi", rekisteroitymiset.AsiakasID);
+                ViewBag.TilaisuusID = new SelectList(db.Tilaisuudet.OrderBy(s => s.Nimi), "TilaisuusID", "Nimi", rekisteroitymiset.TilaisuusID);
+                return View(rekisteroitymiset);
             }
-            ViewBag.AsiakasID = new SelectList(db.Asiakkaat, "AsiakasID", "Nimi", rekisteroitymiset.AsiakasID);
-            ViewBag.TilaisuusID = new SelectList(db.Tilaisuudet, "TilaisuusID", "Nimi", rekisteroitymiset.TilaisuusID);
-            return View(rekisteroitymiset);
         }
 
         // POST: Rekisteroitymiset/Edit/5
@@ -161,16 +182,23 @@ namespace KipparitRy2._0.Controllers
         // GET: Rekisteroitymiset/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Kayttajanimi"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index", "Home");
             }
-            Rekisteroitymiset rekisteroitymiset = db.Rekisteroitymiset.Find(id);
-            if (rekisteroitymiset == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Rekisteroitymiset rekisteroitymiset = db.Rekisteroitymiset.Find(id);
+                if (rekisteroitymiset == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(rekisteroitymiset);
             }
-            return View(rekisteroitymiset);
         }
 
         // POST: Rekisteroitymiset/Delete/5

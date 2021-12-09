@@ -50,7 +50,7 @@ namespace KipparitRy2._0.Controllers
         {
             ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
 
-            var postit = db.Postitoimipaikat
+            var postit = db.Postitoimipaikat.OrderBy(s => s.Postitoimipaikka)
             .Select(s => new
             {
                 Text = s.Postitoimipaikka + ", " + s.Postinumero,
@@ -61,7 +61,7 @@ namespace KipparitRy2._0.Controllers
 
             // Tilaisuus
             List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
-            ViewBag.TilaisuusID = new SelectList(tilaisuusList, "TilaisuusID", "Nimi");
+            ViewBag.TilaisuusID = new SelectList(tilaisuusList.OrderBy(s => s.Nimi), "TilaisuusID", "Nimi");
 
             //if (rekisteroinutasiakas.EhdotBox == true)
             //{
@@ -79,7 +79,7 @@ namespace KipparitRy2._0.Controllers
         //POST : Home/Index
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index([Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,Postinumero,Postitoimipaikka,PostiID,Etunimi,Sukunimi,TilaisuusID")] Asiakkaat asiakkaat)
+        public ActionResult Index(/*[Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,Postinumero,Postitoimipaikka,PostiID,Etunimi,Sukunimi,TilaisuusID")] */Asiakkaat asiakkaat)
         {
             if (ModelState.IsValid)
             {

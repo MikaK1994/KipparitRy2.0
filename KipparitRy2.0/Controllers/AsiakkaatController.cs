@@ -126,7 +126,7 @@ namespace KipparitRy2._0.Controllers
             else
             {
                 //ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka");
-                var postit = db.Postitoimipaikat
+                var postit = db.Postitoimipaikat.OrderBy(s => s.Postitoimipaikka)
                     .Select(s => new
                     {
                         Text = s.Postitoimipaikka + ", " + s.Postinumero,
@@ -144,7 +144,7 @@ namespace KipparitRy2._0.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,PostiID,RekisterointiPvm")] Asiakkaat asiakkaat)
+        public ActionResult Create(Asiakkaat asiakkaat)
         {
             if (ModelState.IsValid)
             {
@@ -194,7 +194,7 @@ namespace KipparitRy2._0.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,Postitoimipaikat.Postinumero,RekisterointiPvm")] Asiakkaat asiakkaat)
+        public ActionResult Edit(Asiakkaat asiakkaat)
         {
             if (ModelState.IsValid)
             {

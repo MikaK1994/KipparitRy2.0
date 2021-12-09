@@ -59,11 +59,11 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Postitoimipaikat.Postinumero, "Postitoimipaikka", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Postitoimipaikat.Postitoimipaikka, "Postitoimipaikka", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.DropDownList("Postinumero", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.DropDownListFor(model => model.Postitoimipaikat.Postinumero, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Postitoimipaikat.Postinumero, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Postitoimipaikat.Postitoimipaikka, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Postitoimipaikat.Postitoimipaikka, "", new { @class = "text-danger" })
             </div>
         </div>
 
