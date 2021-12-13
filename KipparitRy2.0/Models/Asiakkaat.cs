@@ -32,6 +32,5 @@ namespace KipparitRy2._0.Models
         public virtual Postitoimipaikat Postitoimipaikat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rekisteroitymiset> Rekisteroitymiset { get; set; }
-
     }
 }

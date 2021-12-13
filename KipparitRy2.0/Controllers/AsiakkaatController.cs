@@ -153,7 +153,8 @@ namespace KipparitRy2._0.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postitoimipaikat.PostiID);
+            //ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postitoimipaikat.PostiID);
+            ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
             return View(asiakkaat);
         }
 
@@ -183,7 +184,7 @@ namespace KipparitRy2._0.Controllers
                         Value = s.Postinumero
                     })
                     .ToList();
-
+                ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
                 ViewBag.PostiLista = new SelectList(postit, "Value", "Text");
                 return View(asiakkaat);
             }
@@ -202,7 +203,7 @@ namespace KipparitRy2._0.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postitoimipaikat.PostiID);
+            ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
             return View(asiakkaat);
         }
 

@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using KipparitRy2._0.Models;
 
-
 namespace KipparitRy2._0.Controllers
 {
     public class HomeController : Controller
@@ -46,9 +45,12 @@ namespace KipparitRy2._0.Controllers
         }
 
         //GET: Home/Index
-        public ActionResult Index(Rekisteroinutasiakas rekisteroinutasiakas)
+        public ActionResult Index()
         {
             ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
+
+            //ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero");
+            //Tarviiko tätät edes tässä, kun se on tuolla alemmassa index:ssä?
 
             var postit = db.Postitoimipaikat.OrderBy(s => s.Postitoimipaikka)
             .Select(s => new
@@ -85,11 +87,13 @@ namespace KipparitRy2._0.Controllers
             {
                 asiakkaat.RekisterointiPvm = DateTime.Now;
                 db.Asiakkaat.Add(asiakkaat);
+                //db.Rekisteroitymiset.Add(rekisteroinutasiakas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postitoimipaikat.PostiID);
+            //ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
 
 
             // Tilaisuus
@@ -108,7 +112,7 @@ namespace KipparitRy2._0.Controllers
             //    ViewBag.EhdotBox = "Not Selected";
             //    //viesti näytölle, ettei mene eteenpäin ilman käyttöehtojen hyväksymistä
             //}
-            return View();
+            return View(asiakkaat);
         }
 
         public ActionResult About()

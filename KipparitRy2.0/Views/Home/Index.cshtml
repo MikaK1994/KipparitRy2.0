@@ -5,7 +5,7 @@
 }
 
 <div class="jumbotron">
-    <h2>@ViewBag.Title</h2>
+    @*<h2>@ViewBag.Title</h2>*@
     <h1>Itserekisteröityminen tilaisuuteen</h1>
     <p class="lead">Rekistöröidy tilaisuuteen!</p>
     @*<p><a href="~/Home/create" class="btn btn-primary btn-lg">Rekisteröidy &raquo;</a></p>*@
@@ -49,6 +49,15 @@
                     @Html.ValidationMessageFor(model => model.Postitoimipaikat.Postitoimipaikka, "", new { @class = "text-danger" })
                 </div>
             </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.PostiID, "Postinumero", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                //@Html.DropDownList("PostiID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.PostiID, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PostiID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Tilaisuudet.TilaisuusID, "Tilaisuus", htmlAttributes: new { @class = "control-label col-md-2" })
