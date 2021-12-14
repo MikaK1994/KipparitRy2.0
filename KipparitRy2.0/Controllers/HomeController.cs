@@ -83,6 +83,7 @@ namespace KipparitRy2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(Rekisteroinutasiakas rekisteroinutasiakas)
         {
+            string msg = "";
             if (ModelState.IsValid)
             {
                 Asiakkaat asiakas = new Asiakkaat(); //luokan instassi/olio/objekti
@@ -102,7 +103,8 @@ namespace KipparitRy2._0.Controllers
                 int? maxMaara = tilaisuus.MaxMaara;
                 if(maxMaara == ilmoittautumiset || maxMaara < ilmoittautumiset)
                 {
-                    ViewBag.Error = "Error.";
+                    msg = "Tuli virhe, tilaisuuden maksimimäärä ylittyi !";
+                    TempData["ErrorMessage"] = msg;
                     return RedirectToAction("Index");
                 }
                 ViewBag.Error = "";
