@@ -56,7 +56,7 @@ namespace KipparitRy2._0.Controllers
             .Select(s => new
             {
                 Text = s.Postitoimipaikka + ", " + s.Postinumero,
-                Value = s.Postinumero
+                Value = s.PostiID
             })
             .ToList();
             ViewBag.PostiLista = new SelectList(postit, "Value", "Text");
@@ -81,38 +81,35 @@ namespace KipparitRy2._0.Controllers
         //POST : Home/Index
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(/*[Bind(Include = "AsiakasID,Nimi,Sposti,Osoite,Postinumero,Postitoimipaikka,PostiID,Etunimi,Sukunimi,TilaisuusID")] */Asiakkaat asiakkaat)
+        public ActionResult Index(Rekisteroinutasiakas rekisteroinutasiakas)
         {
             if (ModelState.IsValid)
             {
-                asiakkaat.RekisterointiPvm = DateTime.Now;
-                db.Asiakkaat.Add(asiakkaat);
-                //db.Rekisteroitymiset.Add(rekisteroinutasiakas);
+                Asiakkaat asiakas = new Asiakkaat(); //luokan instassi/olio/objekti
+                asiakas.AsiakasID = rekisteroinutasiakas.AsiakasID; //olion ominaisuus
+                asiakas.Nimi = rekisteroinutasiakas.Nimi;
+                asiakas.Sposti = rekisteroinutasiakas.Sposti;
+                asiakas.Osoite = rekisteroinutasiakas.Osoite;
+                asiakas.PostiID = rekisteroinutasiakas.PostiID;
+                asiakas.RekisterointiPvm = DateTime.Now;
+                db.Asiakkaat.Add(asiakas);
+
+                Rekisteroitymiset rekisteroitymiset = new Rekisteroitymiset();
+                rekisteroitymiset.AsiakasID = rekisteroinutasiakas.AsiakasID;
+                rekisteroitymiset.TilaisuusID = (int)rekisteroinutasiakas.TilaisuusID;
+                db.Rekisteroitymiset.Add(rekisteroitymiset);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postitoimipaikat.PostiID);
+            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", rekisteroinutasiakas.PostiID);
             //ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
 
 
             // Tilaisuus
             //List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
             //ViewBag.TilaisuusID = new SelectList(tilaisuusList, "TilaisuusID", "Nimi");
-
-
-
-            //if (rekisteroinutasiakas.EhdotBox == true)
-            //{
-            //    ViewBag.EhdotBox = "Selected";
-            //    db.Rekisteroitymiset.Add(rekisteroinutasiakas);
-            //}
-            //else
-            //{
-            //    ViewBag.EhdotBox = "Not Selected";
-            //    //viesti näytölle, ettei mene eteenpäin ilman käyttöehtojen hyväksymistä
-            //}
-            return View(asiakkaat);
+            return View(rekisteroinutasiakas);
         }
 
         public ActionResult About()
