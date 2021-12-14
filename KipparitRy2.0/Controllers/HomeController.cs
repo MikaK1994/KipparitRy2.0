@@ -96,6 +96,16 @@ namespace KipparitRy2._0.Controllers
 
                 Rekisteroitymiset rekisteroitymiset = new Rekisteroitymiset();
                 rekisteroitymiset.AsiakasID = rekisteroinutasiakas.AsiakasID;
+
+                var ilmoittautumiset = db.Rekisteroitymiset.Where(r => r.TilaisuusID == rekisteroinutasiakas.TilaisuusID).ToList().Count();
+                Tilaisuudet tilaisuus = db.Tilaisuudet.Where(r => r.TilaisuusID == rekisteroinutasiakas.TilaisuusID).FirstOrDefault(); //haetaan tilaisuus
+                int? maxMaara = tilaisuus.MaxMaara;
+                if(maxMaara == ilmoittautumiset || maxMaara < ilmoittautumiset)
+                {
+                    ViewBag.Error = "Error.";
+                    return RedirectToAction("Index");
+                }
+                ViewBag.Error = "";
                 rekisteroitymiset.TilaisuusID = (int)rekisteroinutasiakas.TilaisuusID;
                 db.Rekisteroitymiset.Add(rekisteroitymiset);
                 db.SaveChanges();
