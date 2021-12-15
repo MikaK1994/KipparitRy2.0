@@ -103,7 +103,7 @@ namespace KipparitRy2._0.Controllers
                 int? maxMaara = tilaisuus.MaxMaara;
                 if(maxMaara == ilmoittautumiset || maxMaara < ilmoittautumiset)
                 {
-                    msg = "Tuli virhe, tilaisuuden maksimimäärä ylittyi !";
+                    msg = "Tilaisuuden osallistujamäärä on valitettavasti täynnä";
                     TempData["ErrorMessage"] = msg;
                     return RedirectToAction("Index");
                 }

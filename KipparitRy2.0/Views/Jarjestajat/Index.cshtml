@@ -13,7 +13,7 @@
     <div class="input-group">
         @*Tämä tulostaa paragrafit rinnakkain, eikä erilleen*@
         @*px-1 meinaa, että ympärillä on paddingiä/tilaa*@
-        <p class="px-1">@Html.Label("Etsi nimellä:")</p> @*Otsikko*@
+        <p class="px-1">@Html.Label("Etsi järjestäjän nimellä:")</p> @*Otsikko*@
         <p class="px-1">@Html.TextBox("SearchString", ViewBag.currentFilter as string, new { @class = "form-control" })</p> @*Tällä nimellä kontrolleri näkee mitä tekstiboksiin on syötetty *@
         <p class="px-1"><input type="submit" value="Etsi" class="form-control" /></p> @*buttoni*@
     </div>
@@ -21,7 +21,7 @@
 
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
-    <a class="btn btn-primary" href="~/Jarjestajat/Create/">Luo uusi järjestäjä</a>
+    <a class="btn btn-primary" href="~/Jarjestajat/Create/">Lisää uusi järjestäjä</a>
 </p>
 <table class="table table-striped">
     <tr>
