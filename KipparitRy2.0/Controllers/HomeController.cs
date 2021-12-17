@@ -34,7 +34,7 @@ namespace KipparitRy2._0.Controllers
                 ViewBag.LoggedStatus = "Out";
                 ViewBag.LoginError = 1; //Pakoketaan modaali login-ruutu uudelleen, koska kirjautumisyritys epäonnistui
                 LoginModel.ErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
-                return View("Index", LoginModel);
+                return View("_LoginModal", LoginModel);
             }
         }
         public ActionResult LogOut()
@@ -84,6 +84,7 @@ namespace KipparitRy2._0.Controllers
         public ActionResult Index(Rekisteroinutasiakas rekisteroinutasiakas)
         {
             string msg = "";
+            string msg2 = "";
             if (ModelState.IsValid)
             {
                 Asiakkaat asiakas = new Asiakkaat(); //luokan instassi/olio/objekti
@@ -107,6 +108,14 @@ namespace KipparitRy2._0.Controllers
                     TempData["ErrorMessage"] = msg;
                     return RedirectToAction("Index");
                 }
+
+                var kayttoehdot = rekisteroinutasiakas.EhdotBox;
+                if(kayttoehdot != true)
+                {
+                    msg2 = "Käyttöehdot pitää hyväksyä, jotta voit ilmoittautua tilaisuuteen.";
+                    TempData["ErrorMessage2"] = msg2;
+                    return RedirectToAction("Index");
+                }
                 ViewBag.Error = "";
                 rekisteroitymiset.TilaisuusID = (int)rekisteroinutasiakas.TilaisuusID;
                 db.Rekisteroitymiset.Add(rekisteroitymiset);
@@ -116,11 +125,6 @@ namespace KipparitRy2._0.Controllers
 
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", rekisteroinutasiakas.PostiID);
             //ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
-
-
-            // Tilaisuus
-            //List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
-            //ViewBag.TilaisuusID = new SelectList(tilaisuusList, "TilaisuusID", "Nimi");
             return View(rekisteroinutasiakas);
         }
 

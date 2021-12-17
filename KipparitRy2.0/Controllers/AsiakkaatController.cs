@@ -176,15 +176,14 @@ namespace KipparitRy2._0.Controllers
                 {
                     return HttpNotFound();
                 }
-                //ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postinumero);
-                var postit = db.Postitoimipaikat
+                var postit = db.Postitoimipaikat.OrderBy(s => s.Postitoimipaikka)
                     .Select(s => new
                     {
                         Text = s.Postitoimipaikka + ", " + s.Postinumero,
                         Value = s.Postinumero
                     })
                     .ToList();
-                ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
+
                 ViewBag.PostiLista = new SelectList(postit, "Value", "Text");
                 return View(asiakkaat);
             }

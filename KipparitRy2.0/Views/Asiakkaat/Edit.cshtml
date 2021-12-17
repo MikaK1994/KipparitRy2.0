@@ -70,8 +70,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PostiID, "Postinumero", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("PostiID", null, htmlAttributes: new { @class = "form-control" })
-                @*@Html.DropDownListFor(model => model.PostiID, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })*@
+                @*@Html.DropDownList("PostiID", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.DropDownListFor(model => model.PostiID, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PostiID, "", new { @class = "text-danger" })
             </div>
         </div>
