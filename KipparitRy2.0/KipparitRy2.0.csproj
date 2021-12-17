@@ -235,6 +235,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="image\lokorivi.jpg" />
+    <Content Include="image\Ocean.jpg" />
+    <Content Include="image\Ocean1.jpg" />
+    <Content Include="image\Ocean2.jpg" />
     <Content Include="Models\KipparitModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KipparitModel.edmx</DependentUpon>

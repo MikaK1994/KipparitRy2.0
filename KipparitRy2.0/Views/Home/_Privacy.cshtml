@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="margin">
                 @{
-                    ViewBag.Title = "TIETOSUOJAILMOITUS";
+                    ViewBag.Title = "KÄYTTÖEHDOT";
                 }
 
                 <h2>@ViewBag.Title</h2>
@@ -18,7 +18,7 @@
                     }
                 </style>
 
-                <h4>1. Rekisterinpitäjä</h4>
+                @*<h4>1. Rekisterinpitäjä</h4>
                 <ul style="list-style-type:none;">
                     <li>Nimi: 		Esimerkki Oy</li>
                     <li>Y-tunnus: 		1234567-8</li>
@@ -27,82 +27,80 @@
                     <li>Postitoimipaikka:	HELSINKI</li>
                     <li>Puhelinnumero: 	045 123 4567</li>
                     <li>Sähköpostiosoite: 	esimerkki@domain.fi</li>
-                </ul>
-
-                <h4>2. Rekisteriasioita hoitava henkilö</h4>
-                <ul style="list-style-type:none;">
-                    <li>Yritys: 		Esimerkki Oy</li>
-                    <li>Nimi: 		Essi Esimerkki</li>
-                    <li>Osoite: 		Esimerkkikatu 3</li>
-                    <li>Postinumero:	00100</li>
-                    <li>Postitoimipaikka:	HELSINKI</li>
-                    <li>Puhelinnumero:	045 123 4567</li>
-                    <li>Sähköposti:		esimerkki@domain.fi</li>
-                </ul>
-
-                <h4>3. Tietosuojavastaava</h4>
-                <ul style="list-style-type:none;">
-                    <li>Yritys: 		Esimerkki Oy</li>
-                    <li>Nimi: 		Essi Esimerkki</li>
-                    <li>Osoite: 		Esimerkkikatu 3</li>
-                    <li>Postinumero:	00100</li>
-                    <li>Postitoimipaikka:	HELSINKI</li>
-                    <li>Puhelinnumero:	045 123 4567
-                    <li>
-                    <li>Sähköposti:		esimerkki@domain.fi</li>
-                </ul>
-
-                <h4>4. Rekisterin käyttötarkoitus</h4>
-                <ul style="list-style-type:none;">
-                    <li>Kerättäviä henkilötietoja käytetään:</li>
-                    <li>Asiakkaan tunnistautumiseen ja käyttöoikeuksien hallintaan. Rekisteröityneiden käyttäjien tilausten toimittamiseen ja asiakassuhteen ylläpitoon sekä kehittämiseen.</li>
-                </ul>
-
-                <h4>5. Tietojen keräämisen ja käsittelyn peruste</h4>
-                <ul style="list-style-type:none;">
-                    <li>Asiakkaan tietoja kerätään ja käsitellään asiakkaan suostumuksella, tai asiakkaan kanssa tehtävän sopimuksen täytäntöön panemiseksi.</li>
-                </ul>
-
-                <h4>6. Rekisterin tietosisältö</h4>
-                <ul style="list-style-type:none;">
-                    <li>Yrityksen nimi, Y-Tunnus, Sähköpostiosoite, Puhelinnumero, Henkilötunnus, Käyttäjätunnus ja Salasana.</li>
-                </ul>
-
-                <h4>7. Tietojen säilytysaika</h4>
-                <ul style="list-style-type:none;">
-                    <li>Henkilötiedot säilytetään niin kauan, kun niitä tarvitaan asiakkaan kanssa tehtävän sopimuksen täytäntöönpanemiseksi tai asiakaspalvelun kehittämiseksi.</li>
-                </ul>
-
-                <h4>8. Säännönmukaiset tietolähteet</h4>
-                <ul style="list-style-type:none;">
-                    <li>Rekisteriin kerätään tietoja:</li>
-                    <li>Henkilöltä itseltään. Viranomaisen pitämistä rekistereistä lain sallimissa rajoissa (esim. ytj.fi). Tietoja kerätään myös Google Analytics –analytiikkatyökalun avulla.</li>
-                </ul>
-
-                <h4>9. Säännönmukaiset tietojen luovutukset ja tietojen siirto EU:n tai Euroopan talousalueen ulkopuolelle</h4>
-                <ul style="list-style-type:none;">
-                    <li>Tietoja ei säännönmukaisesti luovuteta yrityksen ulkopuolelle. Osa yrityksen käyttämistä ulkopuolisista palvelun- tai ohjelmistontarjoajista saattavat säilyttää tietoja EU:n tai Euroopan talousalueen ulkopuolella.</li>
-                </ul>
-
-                <h4>10. Evästeiden (cookies) käyttö</h4>
-                <ul style="list-style-type:none;">
-                    <li style="margin-bottom:1em">Käytämme sivuillamme ns. cookie-toimintoa eli evästeitä. Eväste on pieni, käyttäjän tietokoneelle lähetettävä ja siellä säilytettävä tekstitiedosto, joka mahdollistaa internet-sivujen ylläpitäjän tunnistamaan usein sivuilla vierailevat kävijät, helpottamaan kävijöiden kirjautumista sivuille sekä mahdollistamaan yhdistelmätiedon laatimisen kävijöistä. Tämän palautteen avulla pystymme jatkuvasti parantamaan sivujemme sisältöä. Evästeet eivät vahingoita käyttäjien tietokoneita tai tiedostoja. Käytämme niitä siten, että voimme tarjota asiakkaillemme kunkin yksilöityjen tarpeiden mukaisia tietoja ja palveluita.</li>
-                    <li>Mikäli sivuillamme vieraileva käyttäjä ei halua meidän saavan edellä mainittuja tietoja evästeiden avulla, useimmat selainohjelmat mahdollistavat eväste-toiminnon poiskytkemisen. Tämä tapahtuu yleensä selaimen asetuksien kautta.</li>
-                    <li>On kuitenkin hyvä ottaa huomioon se, että evästeet voivat olla tarpeellisia joidenkin ylläpitämiemme sivujen ja tarjoamiemme palveluiden asianmukaiselle toimimiselle.</li>
-                </ul>
-
-                <h4>11. Rekisterin suojaus</h4>
-                <ul style="list-style-type:none;">
-                    <li>Tiedot siirretään SSL-suojatun yhteyden ylitse.</li>
-                    <li>Sähköiset tiedot on suojattu palomuurilla, käyttäjätunnuksin ja salasanoin.</li>
-                    <li>Tietojen käyttöoikeus on vain niillä rekisterinpitäjän palveluksessa olevilla henkilöillä, jotka tarvitsevat tietoja tehtävissään.</li>
-                </ul>
-
-                <h4>12. Automaattinen päätöksenteko</h4>
-                <ul style="list-style-type:none;">
-                    <li>Automatisoituja yksittäispäätöksiä (EU:n tietosuoja-asetuksen artikla 22) ei tehdä</li>
-                </ul>
-
+                </ul>*@
+                
+                <h4>1 Soveltamisala</h4>
+                <p>Lue nämä Ehdot huolella. Ilmoittautumalla Porvoon Kipparit -tapahtumaan ("Palvelu") tai käyttämällä Palvelua hyväksyt nämä Ehdot omasta puolestasi, ja jos käytät Palvelua edustamasi yhteisön puolesta, edustamasi yhteisön puolesta.
+                Mikäli et hyväksy ehtoja, sinä tai edustamasi yhteisö ei ole oikeutettu käyttämään Palvelua. Sinä tai edustamasi yhteisö, jonka puolesta olet hyväksynyt Ehdot, on jäljempänä “Sinä".
+                Henkilö, joka hyväksyy Ehdot edustamansa yhteisön puolesta vahvistaa, että hänellä on oikeus tehdä sitova sopimus edustamansa yhteisön puolesta.
+                Jos Sinä et ole vielä 18-vuotias, sinun pitää hankkia myös huoltajiesi hyväksyntä ennen kuin hyväksyt nämä Ehdot.
+                <h4>2 Palvelu ja sen kautta varatut palvelut</h4>
+                <p>Palvelun kautta voi paikan kolmansien osapuolten palveluihin.</p>
+                <h4>3 Käyttöoikeus</h4>
+                <p>Edellyttäen, että noudatat näitä Ehtoja, Sinulla on ei-yksinomainen ja ei-siirettävissä oleva oikeus käyttää Palvelun suunniteltuja käyttöominaisuuksia varataksesi aikoja Porvoon Kipparit palveluihin kulloinkin antamien ohjeiden mukaisesti. Saat käyttää Dokumentaatiota (kuten määritelty alla tässä kohdassa 3) omassa käytössäsi käyttääksesi Palvelua näiden Ehtojen mukaisesti.
+                Sinä saat käyttää Palvelua päätelaitteen tai päätelaitteiden (kuten tietokone tai älypuhelin) ("Laite") kautta.
+                Käyttöoikeutta rajoittavat seuraavat ehdot: a) Sinä et saa kopioida (pysyvästi tai tilapäisesti) Palvelua missään muodossa kokonaan tai osittain muutoin, kuin Palvelun käyttämiseksi Porvoon Kippareiden ohjeiden mukaan; b) Sinä et saa laajemmin, kuin pakottava soveltuva laki määrää, purkaa, muokata, toisintaa, korjata, muuttaa Palvelua, taikka luoda Palvelusta johdannaisia teoksia tai pyrkiä selvittämään tai selvityttämään Palvelun taustalla olevia ideoita tai ajatuksia tai ohjelmiston lähdekoodia; c) Palvelua ei saa vuokrata, alilisensioida, edelleen luovuttaa, siirtää, antaa kolmannelle pääsyä tai käyttöoikeutta siihen tai myydä sitä kolmannelle osapuolelle; e) Palvelussa olevia tekijänoikeusmerkintöjä, tavaramerkkejä tai muita merkkejä ei saa poistaa, peittää tai muuttaa. Palvelussa olevia mainoksia ei saa myöskään poistaa, peittää tai muuttaa; f) Porvoon Kipparit:in toimittamaa tai Palvelussa olevaa kirjallista tai sähköistä materiaalia ("Dokumentaatio") ei saa kopioida tai muuttaa. Sähköisen materiaalin saa kuitenkin kopioida, jos se on välttämätöntä sähköiseen materiaaliin tutustumiseksi; g) et saa yrittää murtautua Palvelun mihinkään osiin; tai h) et saa teeskennellä olevasi kukaan muu tai käyttää valenimeä.</p>
+                <h4>4 Palvelun käyttö</h4>
+                <p>Porvoon Kipparit toimittaa Palvelun sellaisena kuin se on eikä anna takuuta, että Palvelu on käytössä keskeytyksettä tai virheittä tai että kaikki tieto tai muu materiaali, joka on saatavissa Palvelusta, on vapaata viruksista tai muista haitallisista kohteista, jollei pakottava laki toisin määrää.
+                Mikäli Porvoon Kipparit korjaa virheen se voi tapahtua myös kiertämällä virhe tai toimittamalla Sinulle ohjeet sen kiertämiseksi. Palvelun virhe ei ole virhe, joka johtuu a) käyttövirheestäsi, laiminlyönnistäsi tai ulkoisista häiriötekijöistä; tai b) laitteidesi, tietoliikenneyhteyksiesi tai ohjelmistojesi aiheuttamista vioista ja häiriöistä.
+                Sinä olet vastuussa kaikista Palvelun käyttöön liittyvistä tiedon siirtoon liittyvistä kustannuksista.</p>
+                <h4>5 Oikeudet Sinun tietojasi koskien</h4>
+                <p>Sinä annat Porvoon Kipparit:ille oikeuden tarkastaa Laitteeltasi tieto siitä, että Sinulla on oikeus käyttää Palvelua. Porvoon Kipparit ei tutki Laitteeltasi muita tietoja, kuin mitä Ehdot oikeuttavat.
+                Palvelua käytettäessä Sinun Laitteeseesi tallentuu evästeitä tunnistamistietoina. Palvelun evästeet sisältävät istunnon tunnisteavaimen. Evästeiden tarkoituksena on Sinun tunnistamisesi Palvelua käyttäessäsi.
+                Tietoa, joka syntyy Palveluun käyttäessäsi Palvelua (kuten esimerkiksi lokitiedot), kutsutaan "Lokitiedoksi".
+                Sinä hyväksyt, että Palvelu sisältää toiminnallisuuksia, jotka analysoivat ja lähettävät Lokitietoja Porvoon Kipparit:ille ja tallentavat Lokitietoja. Tällaisia Lokitietoja ovat 1) Sinun Palvelussa antamasi tai Myyjän puolestasi syöttämät henkilötiedot ja Palvelussa syntyvät Sinua koskevat paikkatiedot ja henkilötiedot; 2) Sinun Palvelun käyttösi perusteella syntyvä kaikki tieto koskien esim. varauskäyttäytymistäsi ja tieto koskien käyttäytymistäsi ennen varausta (sisältäen esim. palvelujen ja aikojen selaamisen ja etsimisen).
+                Ylläpitäjällä on näkyvyys Sinun Palvelussa antamiisi tai Ylläpitäjän puolestasi syöttämiin henkilötietoihisi ja Ylläpitäjä vastaa niiden käytöstä omalta osaltaan.
+                Sinä annat Porvoon Kipparit:ille ja sen alihankkijoille oikeuden saada pääsy, tallentaa, analysoida ja muokata Lokitietojasi sekä kohdentaa Palvelussa näkemiäsi mainoksia ja markkinointia.
+                Lokitietosi voivat olla myös ETA-alueen ulkopuolella, jos Sinä itse käytät Palvelua ETA-alueen ulkopuolella.
+                Porvoon Kipparit:illa on oikeus myös hyödyntää Lokitietojasi Palvelun, muiden tuotteidensa ja muiden palveluidensa tekniseksi ja kaupalliseksi kehittämiseksi ja virhetilanteiden korjaamiseksi.
+                Jos peruutat jonkin suostumuksesi taikka jos Sinä et anna Porvoon Kipparit:ille Palvelun tarvitsemia tietoja, Porvoon Kipparit:in ei ole välttämättä mahdollista tarjota Sinulle Palvelua osin tai kokonaisuudessaan.
+                Palvelua käyttäessäsi Sinä tiedostat ja hyväksyt, että tiedot, jotka on lähetty Internetin tai muun tietoverkon välityksellä, eivät ole turvassa varmuudella. Porvoon Kipparit ei ota vastuuta mistään vahingosta tai menetyksestä koskien Lokitietojasi tai muita tietoja, jotka Sinä lähetät Porvoon Kipparit:ille tai Myyjälle Internetin tai muun tietoverkon välityksellä.</p>
+                <h4>6 Palvelun tietosisältösi ja käyttö</h4>
+                <p>6.1 Yleistä
+                Vastaat Palveluun lisäämästäsi sisällöstä tai sen kautta kolmansille toimitetusta tiedoista ja aineistosta, sekä syötettyjen tietojen oikeellisuudesta ja käytöstä. Et saa syöttää lainvastaisia tai kolmansien oikeuksia rikkovia tietoja.
+                Porvoon Kipparit:illa on oikeus poistaa tietojasi tai keskeyttää pääsysi Palveluun siltä osin, kun Porvoon Kipparit epäilee Ehtojen rikkomusta tai kuin tähän on velvoite lain tai viranomaismääräyksen perusteella.
+                6.2 Porvoon Kipparit:in Käyttöoikeus
+                Porvoon Kipparit:illa on oikeus käyttää Palvelun käytöstä syntyviä kaikkia tietoja Palvelun toiminnan mahdollistamiseksi, mahdollisten virhetilanteiden korjaamiseksi, Palvelun kehittämiseen ja muokkaamiseen sekä Ehtojen mukaisten oikeuksien ja velvollisuuksien täyttämiseen ja käyttämiseen.
+                Porvoon Kipparit:illa on myös oikeus käyttää Palvelun käytöstä syntyviä tietoja anonyymisti Porvoon Kipparit:in liiketoiminnan kehittämiseen ja markkinointiin. Voimme mm. käyttää Palvelussa olevaa tietoa luodessamme tilastotietoa Palvelun kautta tehdyistä varauksista, asiakkaista ja muista asioista, joista ei selviä asiakkaan tai käyttäjän identiteettiä.
+                Porvoon Kipparit:in käyttöoikeudet jatkuvat Ehtojen päätyttyäkin.</p>
+                <h4>7 Omistus- ja Immateriaalioikeudet; Luottamuksellisuus</h4>
+                <p>Omistusoikeus ja kaikki immateriaalioikeudet Palveluun, sen tuottamiseksi käytettäviin järjestelmiin ja ohjelmistoihin sekä Dokumentaatioon, sekä kaikkien niiden kopioihin, muutoksiin, käännöksiin ja johdannaisiin ovat Porvoon Kipparit:in tai sen lisenssinantajien tai toimittajien omaisuutta. Immateriaalioikeuksilla tarkoitetaan patentteja, keksintöjä, tavaramerkkejä, domain-nimiä, oikeutta tietotaitoon, tekijänoikeuksia, tekijänoikeuden lähioikeuksia sekä kaikkia muita aineettomia oikeuksia minkä tahansa oikeusjärjestelmän mukaan kaikkialla maailmassa ovatpa ne rekisteröityjä tai eivät, mukaan lukien kaikki muokkausoikeudet ja edelleen luovuttamisoikeudet koskien kaikkia edellä mainittuja kohteita.
+                Kaikki ei-julkisessa tiedossa oleva tieto Palvelua koskien kuten Palvelun rakenne, käyttöliittymä ja Palvelun perustana olevat ideat ovat aina Porvoon Kipparit:in salaista tietoa etkä saa paljastaa niitä kolmansille osapuolille taikka käyttää niitä muutoin kuin Palvelun Ehtojen mukaiseksi käyttämiseksi, ilman Porvoon Kipparit:in kirjallista lupaa.</p>
+                <h4>8 Teknisluontoisten tietojen käsittely</h4>
+                <p>8.1 Yleistä
+                Tunnistamistiedolla tarkoitetaan Palvelun käyttäjään yhdistettävissä olevaa tietoa, jota Palvelussa ja Palvelun käyttämissä viestintäverkoissa käsitellään viestien siirtämiseksi, jakelemiseksi tai tarjolla pitämiseksi. Tunnistamistietoja käsitellään seuraavissa tilanteissa sekä lain nimenomaisesti sallimissa tilanteissa.
+                a) Tunnistamistietoja käsitellään siinä määrin, kuin se on tarpeen Palvelun toteuttamiseksi ja käyttämiseksi sekä tietoturvasta huolehtimiseksi.
+                b) Tunnistamistietoja käsitellään teknistä kehittämistä varten. Tässä tarkoituksessa käsitellään edellä seuraavia tietotyyppejä: IP-osoite, selain, resoluutio, käyttöjärjestelmä, evästeet, käyttäjätunnus, tieto istunnon kestosta Palvelun eri osioissa seuraavan aikaa: kaksikymmentäneljä (24) kuukautta istunnosta.
+                c) Palvelun osana olevien tietoliikenneliittymien, päätelaitteiden, viestintäverkon ja siihen liitettyjen palveluiden tunnistamistietoja käsitellään automatisoidusti tilastollista analyysiä varten, koska analyysiä ei voida muuten tuottaa ilman kohtuutonta vaivaa. Tästä analyysitiedosta ei voida tunnistaa yksittäistä käyttäjää.
+                d) Tunnistamistietoja käsitellään Palvelun osana olevan maksullisen tietoyhteiskunnan palvelun, viestintäverkon tai viestintäpalvelun luvattoman käytön ehkäisemiseksi, havaitsemiseksi ja selvittämiseksi. Tässä tarkoituksessa määrätään käytöstä erityisesti seuraavaa: Palvelusta voidaan hakea tarpeen mukaan Palvelun tuottamaa tietoa. Esimerkiksi IP-osoite, selain, resoluutio, käyttöjärjestelmä, evästeet, käyttäjätunnus, tieto istunnon kestosta Palvelun eri osioissa.
+                e) Tunnistamistietoja käsitellään Palvelun osana olevan maksullisen tietoyhteiskunnan palvelun, viestintäverkon tai viestintäpalvelun luvattoman käytön selvittämiseksi. Tunnistamistietoja käsitellään automaattisen hakutoiminnon avulla, joka voi perustua viestien kokoon, yhteenlaskettuun kokoon, tyyppiin, määrään, yhteystapaan tai kohdeosoitteisiin. Tunnistamistietoja käsitellään myös manuaalisesti tilanteessa, jossa on perusteltu syy epäillä, että Palvelun osana olevaa viestintäverkkoa, viestintäpalvelua tai maksullista tietoyhteiskunnan palvelua käytetään näiden Ehtojen tai sen nojalla annettujen määräysten vastaisesti ja jos: 1) automaattisen hakutoiminnon avulla on havaittu viestinnässä tietoturvapoikkeama; tai 2) maksullisen tietoyhteiskunnan palvelun käytön kustannukset ovat nousseet epätavallisen korkeiksi; tai 3) viestintäverkossa havaitaan sinne oikeudetta asennettu laite, ohjelma tai palvelu; taikka 4) yksittäistapauksessa muusta 1–3 kohtaan rinnastuvasta, yleisesti havaittavissa olevasta seikasta voidaan päätellä, että viestintäverkkoa, viestintäpalvelua tai maksullista tietoyhteiskunnan palvelua käytetään Ehtojen tai sen nojalla annettujen määräysten vastaisesti.
+                f) Tunnistamistietoja käsitellään maksujen määrittämistä ja laskutusta varten välttämättömiä tunnistamistietoja, sisäistä laskutusta varten välttämättömiä tunnistamistietoja, viestintäverkon välityksellä tarjottavien mahdollisten kuvatallenteiden, äänitallenteiden ja muiden maksullisten palveluiden laskutusta varten välttämättömiä tunnistamistietoja ja muita laskutuksen kannalta välttämättömiä tietoja. Tässä tarkoituksessa käsitellään seuraavia tietotyyppejä IP-osoite, selain, resoluutio, käyttöjärjestelmä, evästeet, käyttäjätunnus, tieto istunnon kestosta Palvelun eri osioissa seuraavan aikaa: kaksikymmentäneljä (24) kuukautta istunnosta.
+                g) Tunnistamistietoja käsitellään, jos se on tarpeen viestinnän välittämisessä tapahtuneen teknisen vian tai virheen havaitsemiseksi, estämiseksi tai selvittämiseksi.
+                8.2 Tunnistamistietoja käsittelevät henkilöt
+                Tunnistamistietojen tarkemmin yksilöity käsittely on määrätty nimenomaisesti tehtäviksi tietyille Porvoon Kipparit:in työntekijöille.</p>
+                <h4>9 Muutokset Ehtoihin</h4>
+                <p>Me voimme muuttaa näitä Ehtoja milloin tahansa. Hyväksyt uudet Ehdot, mikäli jatkat Palvelun käyttöä Ehtojen muutoksen jälkeen tai muuten hyväksyt ne. Mikäli et hyväksy muutoksia, Sinulla on oikeus lopettaa Palvelun käyttäminen koska tahansa poistamalla rekisteröintisi Palveluun tai ilmoittamalla siitä Porvoon Kipparit:ille sähköpostitse.</p>
+                <h4>10 Vastuu<</h4>
+                <p>Siinä määrin kuin pakottava laki sallii kyseisen rajoituksen, Porvoon Kipparit ei ole vastuussa Sinulle aiheutuneista välittömistä tai välillisistä vahingoista, kuten Sinulle aiheutuneista kustannuksista, saamatta jääneestä liikevaihdosta, voitosta tai säästöistä, tietojen katoamisesta tai muuttumisesta tai näistä aiheutuneista vahingoista kuten tietojen uudelleen luomisen tai siirron aiheuttamista kustannuksista taikka kateostosta.</p>
+                <h4>11 Soveltuva laki ja oikeuspaikka</h4>
+                <p>Näihin Ehtoihin soveltuu Suomen laki poislukien sen lainvalintasäännöt.
+                Kaikki Ehdoista aiheutuvat tai siihen liittyvät riitaisuudet ratkaistaan lopullisesti välimiesmenettelyssä Keskuskauppakamarin välityslautakunnan sääntöjen mukaisesti yhden (1) välimiehen toimesta. Välimiesoikeus kokoontuu Turussa. Edellä mainitusta poiketen Porvoon Kipparit:illa on oikeus hakea turvaamistointa estääkseen tai päättääkseen Ehtojen rikkomuksen missä tahansa yleisissä tuomioistuimissa.
+                Mikäli Sinä olet kuluttaja, kaikki Ehdoista aiheutuvat tai siihen liittyvät riitaisuudet ratkaistaan vastaajan kotipaikan käräjäoikeudessa. Kuluttajan Porvoon Kipparit:ia vastaan esittämä kuluttajansuojalainsäädäntöön perustuva vaatimus voidaan tutkia myös käräjäoikeudessa, jonka tuomiopiirissä kuluttajalla on kotipaikka tai vakituinen asuinpaikka.</p>
+                <h4>12 Yleistä</h4>
+                <p>12.1 Ilmoitukset
+                Palvelua koskevat ilmoitukset on tehtävä kirjallisesti kuten sähköpostilla. Porvoon Kipparit voi pätevästi toimittaa ilmoituksia Sinulle Palvelun käyttöliittymässä.
+                Vastaat, että yhteystietosi ovat ajan tasalla Palvelussa niiden muuttuessa.
+                12.2 Koko sopimus
+                Nämä Ehdot kattavat kaikki sen aihetta koskevat ehdot, ja ne korvaavat kaikki aikaisemmat kirjalliset ja suulliset tarjoukset, sopimukset, neuvottelut, markkinointimateriaalin ja muut tahdonilmaisut Porvoon Kipparit:in ja Sinun välilläsi näiden Ehtojen aiheesta.
+                12.3 Sähköpostin käyttö
+                Porvoon Kipparit saattaa lähettää Sinulle sähköpostia salaamattomana tekstimuodossa, koska Porvoon Kipparit on tietoinen siitä, että useimmat henkilöt eivät voi helposti käsitellä salattua sähköpostia. Tällaisen viestinnän turvallisuutta heikentää se, että väärin reititettynä tai siepattuna suojaamaton sähköposti voidaan lukea helpommin kuin suojattu sähköposti.
+                12.4 Osittainen pätemättömyys
+                Jos jokin Ehtojen kohta todettaisiin pätemättömäksi, jäävät Ehdot muilta osin voimaan. Ehtoja tulee tulkita siten, että alkuperäisen ehdon tarkoitus säilyy mahdollisimman pitkälti.
+                12.5 Oikeuksista luopuminen
+                Jos Porvoon Kipparit ei käytä Ehtojen mukaista oikeuttaan, ei tätä tulkita siten, että Porvoon Kipparit olisi luopunut käyttämästä sanottua oikeuttaan.
+                12.6 Tietoyhteiskunnan palveluiden tarjoamisesta annetun lain tarkoittama yhteyspiste on:
+                Porvoon Kipparit Ry</p>
+                @*
                 <h4>13. Rekisteröidyn oikeudet</h4>
                 <ul style="list-style-type:none;">
                     <li style="margin-bottom:1em">Rekisteröidyllä on oikeus tarkastaa, mitä häntä koskevia tietoja henkilötietorekisteriin on talletettu. Kirjallinen tarkastuspyyntö tulee lähettää allekirjoitettuna rekisteriasioista vastaavalle henkilölle.</li>
@@ -110,7 +108,7 @@
                     <li style="margin-bottom:1em">Rekisteröidyllä on oikeus vaatia virheellisten tai vanhentuneiden tietojen oikaisua tai poistamista tai tietojen siirtoa järjestelmästä toiseen. Hänellä on myös oikeus rajoittaa tai vastustaa tietojensa käsittelyä EU:n tietosuoja-asetuksen artiklojen 18 ja 21 mukaisesti.</li>
                     <li style="margin-bottom:1em">Rekisteröidyllä on oikeus peruuttaa aiemmin antamansa suostumus tietojen käsittelylle tai tehdä henkilötietojensa käsittelyyn liittyvistä seikoista valitus valvontaviranomaiselle.</li>
                     <li style="margin-bottom:1em">Rekisteröidyllä on myös oikeus kieltää tietojensa käyttö suoramarkkinointitarkoituksiin.</li>
-                </ul>
+                </ul>*@
             </div>
 
             <div class="modal-footer">
