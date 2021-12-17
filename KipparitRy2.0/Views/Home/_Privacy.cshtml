@@ -1,0 +1,121 @@
+﻿<div class="modal fade" id="kayttoehdot" role="dialog">
+    @*fade sana tekee ikkunasta feidaavan*@
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="margin">
+                @{
+                    ViewBag.Title = "TIETOSUOJAILMOITUS";
+                }
+
+                <h2>@ViewBag.Title</h2>
+                <h3>@ViewBag.Message</h3>
+
+                <style>
+                    .margin {
+                        padding: 20px;
+                        margin: 20px;
+                        border: 2px solid #346beb;
+                    }
+                </style>
+
+                <h4>1. Rekisterinpitäjä</h4>
+                <ul style="list-style-type:none;">
+                    <li>Nimi: 		Esimerkki Oy</li>
+                    <li>Y-tunnus: 		1234567-8</li>
+                    <li>Osoite: 		Esimerkkikatu 3</li>
+                    <li>Postinumero:	00100</li>
+                    <li>Postitoimipaikka:	HELSINKI</li>
+                    <li>Puhelinnumero: 	045 123 4567</li>
+                    <li>Sähköpostiosoite: 	esimerkki@domain.fi</li>
+                </ul>
+
+                <h4>2. Rekisteriasioita hoitava henkilö</h4>
+                <ul style="list-style-type:none;">
+                    <li>Yritys: 		Esimerkki Oy</li>
+                    <li>Nimi: 		Essi Esimerkki</li>
+                    <li>Osoite: 		Esimerkkikatu 3</li>
+                    <li>Postinumero:	00100</li>
+                    <li>Postitoimipaikka:	HELSINKI</li>
+                    <li>Puhelinnumero:	045 123 4567</li>
+                    <li>Sähköposti:		esimerkki@domain.fi</li>
+                </ul>
+
+                <h4>3. Tietosuojavastaava</h4>
+                <ul style="list-style-type:none;">
+                    <li>Yritys: 		Esimerkki Oy</li>
+                    <li>Nimi: 		Essi Esimerkki</li>
+                    <li>Osoite: 		Esimerkkikatu 3</li>
+                    <li>Postinumero:	00100</li>
+                    <li>Postitoimipaikka:	HELSINKI</li>
+                    <li>Puhelinnumero:	045 123 4567
+                    <li>
+                    <li>Sähköposti:		esimerkki@domain.fi</li>
+                </ul>
+
+                <h4>4. Rekisterin käyttötarkoitus</h4>
+                <ul style="list-style-type:none;">
+                    <li>Kerättäviä henkilötietoja käytetään:</li>
+                    <li>Asiakkaan tunnistautumiseen ja käyttöoikeuksien hallintaan. Rekisteröityneiden käyttäjien tilausten toimittamiseen ja asiakassuhteen ylläpitoon sekä kehittämiseen.</li>
+                </ul>
+
+                <h4>5. Tietojen keräämisen ja käsittelyn peruste</h4>
+                <ul style="list-style-type:none;">
+                    <li>Asiakkaan tietoja kerätään ja käsitellään asiakkaan suostumuksella, tai asiakkaan kanssa tehtävän sopimuksen täytäntöön panemiseksi.</li>
+                </ul>
+
+                <h4>6. Rekisterin tietosisältö</h4>
+                <ul style="list-style-type:none;">
+                    <li>Yrityksen nimi, Y-Tunnus, Sähköpostiosoite, Puhelinnumero, Henkilötunnus, Käyttäjätunnus ja Salasana.</li>
+                </ul>
+
+                <h4>7. Tietojen säilytysaika</h4>
+                <ul style="list-style-type:none;">
+                    <li>Henkilötiedot säilytetään niin kauan, kun niitä tarvitaan asiakkaan kanssa tehtävän sopimuksen täytäntöönpanemiseksi tai asiakaspalvelun kehittämiseksi.</li>
+                </ul>
+
+                <h4>8. Säännönmukaiset tietolähteet</h4>
+                <ul style="list-style-type:none;">
+                    <li>Rekisteriin kerätään tietoja:</li>
+                    <li>Henkilöltä itseltään. Viranomaisen pitämistä rekistereistä lain sallimissa rajoissa (esim. ytj.fi). Tietoja kerätään myös Google Analytics –analytiikkatyökalun avulla.</li>
+                </ul>
+
+                <h4>9. Säännönmukaiset tietojen luovutukset ja tietojen siirto EU:n tai Euroopan talousalueen ulkopuolelle</h4>
+                <ul style="list-style-type:none;">
+                    <li>Tietoja ei säännönmukaisesti luovuteta yrityksen ulkopuolelle. Osa yrityksen käyttämistä ulkopuolisista palvelun- tai ohjelmistontarjoajista saattavat säilyttää tietoja EU:n tai Euroopan talousalueen ulkopuolella.</li>
+                </ul>
+
+                <h4>10. Evästeiden (cookies) käyttö</h4>
+                <ul style="list-style-type:none;">
+                    <li style="margin-bottom:1em">Käytämme sivuillamme ns. cookie-toimintoa eli evästeitä. Eväste on pieni, käyttäjän tietokoneelle lähetettävä ja siellä säilytettävä tekstitiedosto, joka mahdollistaa internet-sivujen ylläpitäjän tunnistamaan usein sivuilla vierailevat kävijät, helpottamaan kävijöiden kirjautumista sivuille sekä mahdollistamaan yhdistelmätiedon laatimisen kävijöistä. Tämän palautteen avulla pystymme jatkuvasti parantamaan sivujemme sisältöä. Evästeet eivät vahingoita käyttäjien tietokoneita tai tiedostoja. Käytämme niitä siten, että voimme tarjota asiakkaillemme kunkin yksilöityjen tarpeiden mukaisia tietoja ja palveluita.</li>
+                    <li>Mikäli sivuillamme vieraileva käyttäjä ei halua meidän saavan edellä mainittuja tietoja evästeiden avulla, useimmat selainohjelmat mahdollistavat eväste-toiminnon poiskytkemisen. Tämä tapahtuu yleensä selaimen asetuksien kautta.</li>
+                    <li>On kuitenkin hyvä ottaa huomioon se, että evästeet voivat olla tarpeellisia joidenkin ylläpitämiemme sivujen ja tarjoamiemme palveluiden asianmukaiselle toimimiselle.</li>
+                </ul>
+
+                <h4>11. Rekisterin suojaus</h4>
+                <ul style="list-style-type:none;">
+                    <li>Tiedot siirretään SSL-suojatun yhteyden ylitse.</li>
+                    <li>Sähköiset tiedot on suojattu palomuurilla, käyttäjätunnuksin ja salasanoin.</li>
+                    <li>Tietojen käyttöoikeus on vain niillä rekisterinpitäjän palveluksessa olevilla henkilöillä, jotka tarvitsevat tietoja tehtävissään.</li>
+                </ul>
+
+                <h4>12. Automaattinen päätöksenteko</h4>
+                <ul style="list-style-type:none;">
+                    <li>Automatisoituja yksittäispäätöksiä (EU:n tietosuoja-asetuksen artikla 22) ei tehdä</li>
+                </ul>
+
+                <h4>13. Rekisteröidyn oikeudet</h4>
+                <ul style="list-style-type:none;">
+                    <li style="margin-bottom:1em">Rekisteröidyllä on oikeus tarkastaa, mitä häntä koskevia tietoja henkilötietorekisteriin on talletettu. Kirjallinen tarkastuspyyntö tulee lähettää allekirjoitettuna rekisteriasioista vastaavalle henkilölle.</li>
+                    <li style="margin-bottom:1em">Tarkastusoikeus on maksuton enintään kerran vuodessa toteutettuna.</li>
+                    <li style="margin-bottom:1em">Rekisteröidyllä on oikeus vaatia virheellisten tai vanhentuneiden tietojen oikaisua tai poistamista tai tietojen siirtoa järjestelmästä toiseen. Hänellä on myös oikeus rajoittaa tai vastustaa tietojensa käsittelyä EU:n tietosuoja-asetuksen artiklojen 18 ja 21 mukaisesti.</li>
+                    <li style="margin-bottom:1em">Rekisteröidyllä on oikeus peruuttaa aiemmin antamansa suostumus tietojen käsittelylle tai tehdä henkilötietojensa käsittelyyn liittyvistä seikoista valitus valvontaviranomaiselle.</li>
+                    <li style="margin-bottom:1em">Rekisteröidyllä on myös oikeus kieltää tietojensa käyttö suoramarkkinointitarkoituksiin.</li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Sulje</button>
+            </div>
+        </div>
+    </div>
+</div>
