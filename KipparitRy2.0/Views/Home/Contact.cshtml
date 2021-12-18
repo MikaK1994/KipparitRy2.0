@@ -1,37 +1,48 @@
-﻿@{
-    ViewBag.Title = "Yhteystiedot";
-}
+﻿<div class="margin">
+    @{
+        ViewBag.Title = "Yhteystiedot";
+    }
 
-@*JQuery suoritetaan aina, kun sivu latautuu*@
-@section scripts {
-    <script type="text/javascript">
+    @*JQuery suoritetaan aina, kun sivu latautuu*@
+    @section scripts {
+        <script type="text/javascript">
         $(window).on('load', function () {
             if (@ViewBag.LoginError == 1) {
                 $('#myModal').modal('show');
             }
         });
-    </script>
-}
+        </script>
+    }
 
-<h2>@ViewBag.Title</h2>
-<h3><b>@ViewBag.Message</b></h3>
+    <style>
+        .margin {
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #346beb;
+            background-color: white;
+        }
+    </style>
 
-<address>
-    Matti Luoma<br />
-    Piispankatu 8-10 B 13<br />
-    06100 PORVOO<br />
-    Puhelin: 050 4307760
-</address>
+    <h2>@ViewBag.Title</h2>
+    <h3><b>@ViewBag.Message</b></h3>
 
-<address>
-    <strong>Kommodori Hanna Uuksulainen:</strong> <a href="mailto:hanna.uuksulainen@gmail.com">hanna.uuksulainen@gmail.com</a><br />
-    <strong>Varakommodori Toni Orela:</strong>   <a href="mailto:toni.orela@gmail.com">toni.orela@gmail.com</a>
-</address>
+    <address>
+        Matti Luoma<br />
+        Piispankatu 8-10 B 13<br />
+        06100 PORVOO<br />
+        Puhelin: 050 4307760
+    </address>
 
-<h2>Kartta</h2>
+    <address>
+        <strong>Kommodori Hanna Uuksulainen:</strong> <a href="mailto:hanna.uuksulainen@gmail.com">hanna.uuksulainen@gmail.com</a><br />
+        <strong>Varakommodori Toni Orela:</strong>   <a href="mailto:toni.orela@gmail.com">toni.orela@gmail.com</a>
+    </address>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.4627862361926!2d25.665650116115312!3d60.38803388204176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4691f42d1e1e6091%3A0x3939687cfcac668e!2sPiispankatu%208%2C%2006100%20Porvoo!5e0!3m2!1sfi!2sfi!4v1635999347226!5m2!1sfi!2sfi" width="1200" height="700" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <h2>Kartta</h2>
 
-@{
-    Html.RenderPartial("_LoginModal");
-}
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.4627862361926!2d25.665650116115312!3d60.38803388204176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4691f42d1e1e6091%3A0x3939687cfcac668e!2sPiispankatu%208%2C%2006100%20Porvoo!5e0!3m2!1sfi!2sfi!4v1635999347226!5m2!1sfi!2sfi" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    @{
+        Html.RenderPartial("_LoginModal");
+    }
+</div>

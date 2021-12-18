@@ -1,5 +1,6 @@
 ﻿body {
     padding-bottom: 20px;
+    margin: 0px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+footer {
+    background-color: whitesmoke !important;
+    width: 100% !important;
+}
+
