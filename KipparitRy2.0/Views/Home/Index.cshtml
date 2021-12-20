@@ -10,7 +10,7 @@
     <p class="lead" style="text-align: center">Rekisteröidy tilaisuuteen alla olevalla lomakkeella</p>
     @*<p><a href="~/Home/create" class="btn btn-primary btn-lg">Rekisteröidy &raquo;</a></p>*@
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("ReDirect", "Home", FormMethod.Get, new { @class = "form-inline" }))
     {
         @Html.AntiForgeryToken()
 

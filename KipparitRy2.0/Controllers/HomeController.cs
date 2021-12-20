@@ -148,5 +148,9 @@ namespace KipparitRy2._0.Controllers
 
             return View();
         }
+        public ActionResult ReDirect()
+        {
+            return View();
+        }
     }
 }

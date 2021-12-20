@@ -2,7 +2,6 @@
     @{
         ViewBag.Title = "Tietoa meistä";
     }
-
     @*JQuery suoritetaan aina, kun sivu latautuu*@
     @section scripts {
         <script type="text/javascript">
@@ -13,36 +12,26 @@
         });
         </script>
     }
+    <div class="center">
+        <br />
+        <img id="logos" src="~/image/lokorivi.jpg" width="742" height="121" />
+        <br />
+        <br />
+        <h3 style="margin-top:2%;">@ViewBag.Message</h3>
 
-    <style>
-        .margin {
-            padding: 20px;
-            margin: 30px;
-            border: 2px solid #346beb;
-            background-color: white;
+        <br />
+        <p style="line-height:2em;">Yhdistyksen nimi on Porvoon Kipparit ry ja kotipaikka on Porvoon kaupunki. <br />Yhdistyksestä käytetään näissä säännöissä
+        nimitystä seura.<br/> Seuran tarkoituksena on herättää ja edistää merenkulun harrastusta ja liikennekulttuuria, <br />sekä kehittää ja
+        ylläpitää jäsentensä merenkulkutaitoa ja merimiestaitoa <br />ja tässä mielessä toimia yhdyssiteenä kaikkien harrastelija-ja
+        ammattimerenkulkijapiirien välillä.</p>
+        <br />
+        <p style="line-height:2em; margin-bottom:5%;">Seura pyrkii toteuttamaan tarkoitustaan järjestämällä merenkulun opastusta, harjoituksia, <br />tutkintoja, kilpailuja,
+        valistustoimintaa, tilaisuuksia miellyttävään ja hyödylliseen ajanviettoon, <br />sekä järjestämällä näyttelyitä, arpajaisia ja omistamalla
+        ja hallitsemalla kiinteistöjä sekä irtainta omaisuutta. <br />Seura ja sen jäsenet antavat mahdollisuuksiensa mukaan vapaaehtoista
+        apua meripelastustoimintaan.</>
+
+        @{
+            Html.RenderPartial("_LoginModal");
         }
-    </style>
-
-    <br />
-    <h2>@ViewBag.Title</h2>
-    <img src="~/image/lokorivi.jpg" width="742" height="121" />
-    <br />
-    <br />
-    <h3>@ViewBag.Message</h3>
-
-    <br />
-    <p>Yhdistyksen nimi on Porvoon Kipparit ry ja sen kotipaikka on Porvoon kaupunki. Yhdistyksestä käytetään näissä säännöissä<p>
-    <p>nimitystä seura. Seuran tarkoituksena on herättää ja edistää merenkulun harrastusta ja liikennekulttuuria, sekä kehittää ja<p>
-    <p>ylläpitää jäsentensä merenkulkutaitoa ja merimiestaitoa ja tässä mielessä toimia yhdyssiteenä kaikkien harrastelija-ja</p>
-    <p>ammattimerenkulkijapiirien välillä.</p>
-
-    <br />
-    <p>Seura pyrkii toteuttamaan tarkoitustaan järjestämällä merenkulun opastusta, harjoituksia, tutkintoja, kilpailuja,</p>
-    <p>valistustoimintaa, tilaisuuksia miellyttävään ja hyödylliseen ajanviettoon, sekä järjestämällä näyttelyitä, arpajaisia ja omistamalla</p>
-    <p>ja hallitsemalla kiinteistöjä sekä irtainta omaisuutta. Seura ja sen jäsenet antavat mahdollisuuksiensa mukaan vapaaehtoista</p>
-    <p>apua meripelastustoimintaan.</p>
-
-    @{
-        Html.RenderPartial("_LoginModal");
-    }
+    </div>
 </div>

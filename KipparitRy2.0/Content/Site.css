@@ -28,3 +28,20 @@ footer {
     width: 100% !important;
 }
 
+.margin {
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #346beb;
+    background-color: white;
+}
+
+.center {
+    border: 2px solid #346beb;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    iframe, #logos {
+        width: 100%;
+    }
+}
