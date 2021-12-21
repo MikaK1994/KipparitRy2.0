@@ -97,7 +97,7 @@ namespace KipparitRy2._0.Controllers
                 {
                     msg = "Tilaisuuden osallistujamäärä on valitettavasti täynnä";
                     TempData["ErrorMessage"] = msg;
-                    return RedirectToAction("Index");
+                    return RedirectToAction("ReDirect");
                 }
 
                 var kayttoehdot = rekisteroinutasiakas.EhdotBox;
