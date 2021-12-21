@@ -34,7 +34,8 @@ namespace KipparitRy2._0.Controllers
                 ViewBag.LoggedStatus = "Out";
                 ViewBag.LoginError = 1; //Pakoketaan modaali login-ruutu uudelleen, koska kirjautumisyritys epäonnistui
                 LoginModel.ErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
-                return View("_LoginModal", LoginModel);
+                //return View("_LoginModal", LoginModel);
+                return RedirectToAction("Index", "Home");
             }
         }
         public ActionResult LogOut()
@@ -65,16 +66,6 @@ namespace KipparitRy2._0.Controllers
             List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
             ViewBag.TilaisuusID = new SelectList(tilaisuusList.OrderBy(s => s.Nimi), "TilaisuusID", "Nimi");
 
-            //if (rekisteroinutasiakas.EhdotBox == true)
-            //{
-            //    ViewBag.EhdotBox = "Selected";
-            //    db.Rekisteroitymiset.Add(rekisteroinutasiakas);
-            //}
-            //else
-            //{
-            //    ViewBag.EhdotBox = "Not Selected";
-            //    //viesti näytölle, ettei mene eteenpäin ilman käyttöehtojen hyväksymistä
-            //}
             return View();
         }
 

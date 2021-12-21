@@ -1,35 +1,37 @@
-﻿@model KipparitRy2._0.Models.Asiakkaat
+﻿<div class="margin">
+    @model KipparitRy2._0.Models.Asiakkaat
 
-@{
-    ViewBag.Title = "Delete";
-}
-
-<h2>Poista</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>@Html.DisplayNameFor(model => model.Nimi)</dt>
-        <dd>@Html.DisplayFor(model => model.Nimi)</dd>
-        <dt>Sähköposti@*@Html.DisplayNameFor(model => model.Sposti)*@</dt>
-        <dd>@Html.DisplayFor(model => model.Sposti)</dd>
-        <dt>@Html.DisplayNameFor(model => model.Osoite)</dt>
-        <dd>@Html.DisplayFor(model => model.Osoite)</dd>
-        <dt>@Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)</dt>
-        <dd>@Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>
-        <dt>Liittymispäivä@*@Html.DisplayNameFor(model => model.RekisterointiPvm)*@</dt>
-        <dd>@Html.DisplayFor(model => model.RekisterointiPvm)</dd>
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-<div class="form-actions no-color">
-    <input type="submit" value="Poista" class="btn btn-danger" /> |
-    @*@Html.ActionLink("Takaisin listaan", "Index")*@
-
-    <a class="btn btn-primary" href="~/Asiakkaat/">Takaisin listaan</a>
-</div>
+    @{
+        ViewBag.Title = "Delete";
     }
+
+    <h2>Poista</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.Nimi)</dt>
+            <dd>@Html.DisplayFor(model => model.Nimi)</dd>
+            <dt>Sähköposti@*@Html.DisplayNameFor(model => model.Sposti)*@</dt>
+            <dd>@Html.DisplayFor(model => model.Sposti)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Osoite)</dt>
+            <dd>@Html.DisplayFor(model => model.Osoite)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)</dt>
+            <dd>@Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>
+            <dt>Liittymispäivä@*@Html.DisplayNameFor(model => model.RekisterointiPvm)*@</dt>
+            <dd>@Html.DisplayFor(model => model.RekisterointiPvm)</dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Poista" class="btn btn-danger" /> |
+                @*@Html.ActionLink("Takaisin listaan", "Index")*@
+
+                <a class="btn btn-primary" href="~/Asiakkaat/">Takaisin listaan</a>
+            </div>
+        }
+    </div>
 </div>

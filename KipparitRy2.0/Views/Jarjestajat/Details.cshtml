@@ -1,31 +1,33 @@
-﻿@model KipparitRy2._0.Models.Jarjestajat
+﻿<div class="margin">
+    @model KipparitRy2._0.Models.Jarjestajat
 
-@{
-    ViewBag.Title = "Details";
-}
+    @{
+        ViewBag.Title = "Details";
+    }
 
-<h2>Tiedot</h2>
+    <h2>Tiedot</h2>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>Järjestäjän nimi @*@Html.DisplayNameFor(model => model.Nimi)*@</dt>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Järjestäjän nimi @*@Html.DisplayNameFor(model => model.Nimi)*@</dt>
 
-        <dd>@Html.DisplayFor(model => model.Nimi)</dd>
+            <dd>@Html.DisplayFor(model => model.Nimi)</dd>
 
-        <dt>
-            @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
-            Tilaisuus
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
+                Tilaisuus
+            </dt>
 
-        <dd>@Html.DisplayFor(model => model.Tilaisuudet.Nimi)</dd>
+            <dd>@Html.DisplayFor(model => model.Tilaisuudet.Nimi)</dd>
 
-    </dl>
+        </dl>
+    </div>
+    <p>
+        <a class="btn btn-success" href="~/Jarjestajat/Edit/@Model.JarjestajaID">Muokkaa</a>
+        <a class="btn btn-primary" href="~/Jarjestajat/">Takaisin listaan</a>
+
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.JarjestajaID }) |*@
+        @*@Html.ActionLink("Back to List", "Index")*@
+    </p>
 </div>
-<p>
-    <a class="btn btn-success" href="~/Jarjestajat/Edit/@Model.JarjestajaID">Muokkaa</a>
-    <a class="btn btn-primary" href="~/Jarjestajat/">Takaisin listaan</a>
-
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.JarjestajaID }) |*@
-    @*@Html.ActionLink("Back to List", "Index")*@
-</p>

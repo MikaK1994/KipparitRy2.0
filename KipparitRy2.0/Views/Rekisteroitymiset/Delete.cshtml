@@ -1,43 +1,45 @@
-﻿@model KipparitRy2._0.Models.Rekisteroitymiset
+﻿<div class="margin">
+    @model KipparitRy2._0.Models.Rekisteroitymiset
 
-@{
-    ViewBag.Title = "Delete";
-}
-
-<h2>Poista asiakas tilaisuudesta</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Asiakas
-            @*@Html.DisplayNameFor(model => model.Asiakkaat.Nimi)*@
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Asiakkaat.Nimi)
-        </dd>
-
-        <dt>
-            Tilaisuus
-            @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tilaisuudet.Nimi)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Poista" class="btn btn-danger" /> |
-            @*@Html.ActionLink("Takaisin listaan", "Index")*@
-
-            <a class="btn btn-primary" href="~/Rekisteroitymiset/">Takaisin listaan</a>
-        </div>
+    @{
+        ViewBag.Title = "Delete";
     }
+
+    <h2>Poista asiakas tilaisuudesta</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Asiakas
+                @*@Html.DisplayNameFor(model => model.Asiakkaat.Nimi)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Asiakkaat.Nimi)
+            </dd>
+
+            <dt>
+                Tilaisuus
+                @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tilaisuudet.Nimi)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Poista" class="btn btn-danger" /> |
+                @*@Html.ActionLink("Takaisin listaan", "Index")*@
+
+                <a class="btn btn-primary" href="~/Rekisteroitymiset/">Takaisin listaan</a>
+            </div>
+        }
+    </div>
 </div>

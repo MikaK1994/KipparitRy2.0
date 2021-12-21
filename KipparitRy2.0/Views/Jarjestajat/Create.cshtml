@@ -1,48 +1,50 @@
-﻿@model KipparitRy2._0.Models.Jarjestajat
+﻿<div class="margin">
+    @model KipparitRy2._0.Models.Jarjestajat
 
-@{
-    ViewBag.Title = "Create";
-}
+    @{
+        ViewBag.Title = "Create";
+    }
 
-<h2>Lisää</h2>
+    <h2>Lisää</h2>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nimi, "Järjestäjän nimi", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nimi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nimi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.TilaisuusID, "Tilaisuus", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nimi, "Järjestäjän nimi", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("TilaisuusID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.TilaisuusID, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Nimi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nimi, "", new { @class = "text-danger" })
                 </div>
-            </div>*@
+            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Lisää" class="btn btn-success" />
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.TilaisuusID, "Tilaisuus", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("TilaisuusID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TilaisuusID, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lisää" class="btn btn-success" />
+                </div>
             </div>
         </div>
+    }
+
+    <div>
+        @*@Html.ActionLink("Back to List", "Index")*@
+        <p><a class="btn btn-primary" href="~/Jarjestajat/">Takaisin listaan</a></p>
     </div>
-}
 
-<div>
-    @*@Html.ActionLink("Back to List", "Index")*@
-    <p><a class="btn btn-primary" href="~/Jarjestajat/">Takaisin listaan</a></p>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

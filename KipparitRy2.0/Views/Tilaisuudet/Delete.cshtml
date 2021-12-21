@@ -1,56 +1,58 @@
-﻿@model KipparitRy2._0.Models.Tilaisuudet
+﻿<div class="margin">
+    @model KipparitRy2._0.Models.Tilaisuudet
 
-@{
-    ViewBag.Title = "Delete";
-}
-
-<h2>Poista</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Tilaisuus
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nimi)
-        </dd>
-
-        <dt>
-            Päivämäärä
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pvm)
-        </dd>
-
-        <dt>
-            Max osallistujat
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaxMaara)
-        </dd>
-
-        <dt>
-            Järjestäjä
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Jarjestajat1.Nimi)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Poista" class="btn btn-danger" /> |
-            @*@Html.ActionLink("Takaisin listaan", "Index")*@
-            <a class="btn btn-primary" href="~/Tilaisuudet/">Takaisin listaan</a>
-        </div>
+    @{
+        ViewBag.Title = "Delete";
     }
+
+    <h2>Poista</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tilaisuus
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nimi)
+            </dd>
+
+            <dt>
+                Päivämäärä
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pvm)
+            </dd>
+
+            <dt>
+                Max osallistujat
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaxMaara)
+            </dd>
+
+            <dt>
+                Järjestäjä
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Jarjestajat1.Nimi)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Poista" class="btn btn-danger" /> |
+                @*@Html.ActionLink("Takaisin listaan", "Index")*@
+                <a class="btn btn-primary" href="~/Tilaisuudet/">Takaisin listaan</a>
+            </div>
+        }
+    </div>
 </div>

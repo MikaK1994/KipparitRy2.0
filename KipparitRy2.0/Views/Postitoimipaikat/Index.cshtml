@@ -1,59 +1,57 @@
-﻿@model PagedList.IPagedList<KipparitRy2._0.Models.Postitoimipaikat>
-@using PagedList.Mvc;
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+﻿<div class="margin">
+    @model PagedList.IPagedList<KipparitRy2._0.Models.Postitoimipaikat>
+    @using PagedList.Mvc;
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Postitoimipaikat</h2>
-
-@using (Html.BeginForm("Index", "Postitoimipaikat", FormMethod.Get))
-{
-    <div class="input-group">
-        @*Tämä tulostaa paragrafit rinnakkain, eikä erilleen*@
-        @*px-1 meinaa, että ympärillä on paddingiä/tilaa*@
-        <p class="px-1">@Html.Label("Etsi postitoimipaikan nimellä:")</p> @*Otsikko*@
-        <p class="px-1">@Html.TextBox("SearchString", ViewBag.currentFilter as string, new { @class = "form-control" })</p> @*Tällä nimellä kontrolleri näkee mitä tekstiboksiin on syötetty *@
-        <p class="px-1"><input type="submit" value="Etsi" class="form-control" /></p> @*buttoni*@
-    </div>
-}
-
-@*<p>
-    <a class="btn btn-primary" href="~/Postitoimipaikat/Create/">Luo uusi postitoimipaikka</a>
-</p>*@
-<table class="table table-striped">
-    <tr>
-        <th>
-            Postitoimipaikka
-        </th>
-        <th>
-            Postinumero
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-                        <td>
-                @Html.DisplayFor(modelItem => item.Postitoimipaikka)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Postinumero)
-            </td>
-            @*<td>
-                <a class="btn btn-primary" href="~/Postitoimipaikat/Edit/@item.PostiID">Muokkaa</a>
-                <a class="btn btn-primary" href="~/Postitoimipaikat/Details/@item.PostiID">Tiedot</a>
-                <a class="btn btn-danger" href="~/Postitoimipaikat/Delete/@item.PostiID">Poista</a>
-            </td>*@
-        </tr>
+    @{
+        ViewBag.Title = "Index";
     }
 
-</table>
+    <h2>Postitoimipaikat</h2>
 
-@*Sivuttaminen eli sivujen lukumäärä*@
-Sivu @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @using (Html.BeginForm("Index", "Postitoimipaikat", FormMethod.Get))
+    {
+        <div class="input-group">
+            @*Tämä tulostaa paragrafit rinnakkain, eikä erilleen*@
+            @*px-1 meinaa, että ympärillä on paddingiä/tilaa*@
+            <p class="px-1">@Html.Label("Etsi postitoimipaikan nimellä:")</p> @*Otsikko*@
+            <p class="px-1">@Html.TextBox("SearchString", ViewBag.currentFilter as string, new { @class = "form-control" })</p> @*Tällä nimellä kontrolleri näkee mitä tekstiboksiin on syötetty *@
+            <p class="px-1"><input type="submit" value="Etsi" class="form-control" /></p> @*buttoni*@
+        </div>
+    }
 
-@*Seuraavan sivun klikkaus*@
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.currentFilter }))
+    @*<p>
+            <a class="btn btn-primary" href="~/Postitoimipaikat/Create/">Luo uusi postitoimipaikka</a>
+        </p>*@
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Postitoimipaikka
+            </th>
+            <th>
+                Postinumero
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Postitoimipaikka)</td>
+                <td>@Html.DisplayFor(modelItem => item.Postinumero)</td>
+                @*<td>
+                        <a class="btn btn-primary" href="~/Postitoimipaikat/Edit/@item.PostiID">Muokkaa</a>
+                        <a class="btn btn-primary" href="~/Postitoimipaikat/Details/@item.PostiID">Tiedot</a>
+                        <a class="btn btn-danger" href="~/Postitoimipaikat/Delete/@item.PostiID">Poista</a>
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+
+    @*Sivuttaminen eli sivujen lukumäärä*@
+    Sivu @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @*Seuraavan sivun klikkaus*@
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.currentFilter }))
+</div>

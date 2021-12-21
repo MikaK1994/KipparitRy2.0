@@ -1,36 +1,38 @@
-﻿@model KipparitRy2._0.Models.Jarjestajat
+﻿<div class="margin">
+    @model KipparitRy2._0.Models.Jarjestajat
 
-@{
-    ViewBag.Title = "Delete";
-}
-
-<h2>Poista</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>Järjestäjän nimi@*@Html.DisplayNameFor(model => model.Nimi)*@</dt>
-
-        <dd>@Html.DisplayFor(model => model.Nimi)</dd>
-
-        @*<dt>
-                //@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)
-                Tilaisuus
-            </dt>
-
-            <dd>@Html.DisplayFor(model => model.Tilaisuudet.Nimi)</dd>*@
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Poista" class="btn btn-danger" /> |
-            @*@Html.ActionLink("Back to List", "Index")*@
-
-            <a class="btn btn-primary" href="~/Jarjestajat/">Takaisin listaan</a>
-        </div>
+    @{
+        ViewBag.Title = "Delete";
     }
+
+    <h2>Poista</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Järjestäjän nimi@*@Html.DisplayNameFor(model => model.Nimi)*@</dt>
+
+            <dd>@Html.DisplayFor(model => model.Nimi)</dd>
+
+            @*<dt>
+                    //@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)
+                    Tilaisuus
+                </dt>
+
+                <dd>@Html.DisplayFor(model => model.Tilaisuudet.Nimi)</dd>*@
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Poista" class="btn btn-danger" /> |
+                @*@Html.ActionLink("Back to List", "Index")*@
+
+                <a class="btn btn-primary" href="~/Jarjestajat/">Takaisin listaan</a>
+            </div>
+        }
+    </div>
 </div>

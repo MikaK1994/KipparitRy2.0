@@ -1,38 +1,40 @@
-﻿@model KipparitRy2._0.Models.Rekisteroitymiset
+﻿<div class="margin">
+    @model KipparitRy2._0.Models.Rekisteroitymiset
 
-@{
-    ViewBag.Title = "Details";
-}
+    @{
+        ViewBag.Title = "Details";
+    }
 
-<h2>Tiedot</h2>
+    <h2>Tiedot</h2>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Asiakas
-            @*@Html.DisplayNameFor(model => model.Asiakkaat.Nimi)*@
-        </dt>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Asiakas
+                @*@Html.DisplayNameFor(model => model.Asiakkaat.Nimi)*@
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Asiakkaat.Nimi)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Asiakkaat.Nimi)
+            </dd>
 
-        <dt>
-            Tilaisuus
-            @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
-        </dt>
+            <dt>
+                Tilaisuus
+                @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tilaisuudet.Nimi)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Tilaisuudet.Nimi)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+    <p>
+        <a class="btn btn-success" href="~/Rekisteroitymiset/Edit/@Model.RekisterointiID">Muokkaa</a>
+        <a class="btn btn-primary" href="~/Rekisteroitymiset/">Takaisin listaan</a>
+
+        @*@Html.ActionLink("Muokkaa", "Edit", new { id = Model.RekisterointiID }) |
+            @Html.ActionLink("Takaisin listaan", "Index")*@
+    </p>
 </div>
-<p>
-    <a class="btn btn-success" href="~/Rekisteroitymiset/Edit/@Model.RekisterointiID">Muokkaa</a>
-    <a class="btn btn-primary" href="~/Rekisteroitymiset/">Takaisin listaan</a>
-
-    @*@Html.ActionLink("Muokkaa", "Edit", new { id = Model.RekisterointiID }) |
-        @Html.ActionLink("Takaisin listaan", "Index")*@
-</p>
