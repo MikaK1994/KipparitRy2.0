@@ -16,10 +16,11 @@ namespace KipparitRy2._0.Models
     public partial class Logins
     {
         public int LoginID { get; set; }
+        [Required(ErrorMessage = "Anna käyttäjätunnus!")]
         public string Kayttajanimi { get; set; }
 
         [DataType(DataType.Password)]
-        //[Required(ErrorMessage = "Anna salasana!")]
+        [Required(ErrorMessage = "Anna salasana!")]
         public string Salasana { get; set; }
         public string ErrorMessage { get; set; }
     }
