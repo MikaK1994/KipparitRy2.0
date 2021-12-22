@@ -40,9 +40,9 @@
                 <td>@Html.DisplayFor(modelItem => item.MaxMaara)</td>
                 <td>@Html.DisplayFor(modelItem => item.Jarjestajat1.Nimi)</td>
                 <td align="right">
-                    <a class="btn btn-primary" href="~/Tilaisuudet/Edit/@item.TilaisuusID">Muokkaa</a>
-                    <a class="btn btn-primary" href="~/Tilaisuudet/Details/@item.TilaisuusID">Tiedot</a>
-                    <a class="btn btn-danger" href="~/Tilaisuudet/Delete/@item.TilaisuusID">Poista</a>
+                    <a class="btn btn-primary" href="~/Tilaisuudet/Edit/@item.TilaisuusID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a class="btn btn-primary" href="~/Tilaisuudet/Details/@item.TilaisuusID"><i class="fa fa-list" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" href="~/Tilaisuudet/Delete/@item.TilaisuusID"><i class="fa fa-times" aria-hidden="true"></i></a>
 
                     @*@Html.ActionLink("Muokkaa", "Edit", new { id=item.TilaisuusID }) |
                         @Html.ActionLink("Lisätiedot", "Details", new { id=item.TilaisuusID }) |

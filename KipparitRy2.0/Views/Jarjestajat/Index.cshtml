@@ -38,9 +38,9 @@
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
                 @*<td>@Html.DisplayFor(modelItem => item.Tilaisuudet.Nimi)</td>*@
                 <td align="right">
-                    <a class="btn btn-primary" href="~/Jarjestajat/Edit/@item.JarjestajaID">Muokkaa</a>
-                    <a class="btn btn-primary" href="~/Jarjestajat/Details/@item.JarjestajaID">Tiedot</a>
-                    <a class="btn btn-danger" href="~/Jarjestajat/Delete/@item.JarjestajaID">Poista</a>
+                    <a class="btn btn-primary" href="~/Jarjestajat/Edit/@item.JarjestajaID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a class="btn btn-primary" href="~/Jarjestajat/Details/@item.JarjestajaID"><i class="fa fa-list" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" href="~/Jarjestajat/Delete/@item.JarjestajaID"><i class="fa fa-times" aria-hidden="true"></i></a>
 
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.JarjestajaID }) |
                         @Html.ActionLink("Details", "Details", new { id = item.JarjestajaID }) |

@@ -27,9 +27,7 @@
         </p>
     *@
     <a class="btn btn-primary" href="~/Asiakkaat/Create/">Lisää uusi asiakas</a>
-    <p>
-
-    </p>
+    <br /><br />
     <table class="table table-striped">
         <tr>
             <th>@Html.ActionLink("Liittymispäivä", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.currentFilter })</th>
@@ -51,12 +49,12 @@
                 <td>@Html.DisplayFor(modelItem => item.Sposti)</td>
                 <td>@Html.DisplayFor(modelItem => item.Osoite), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postinumero), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postitoimipaikka)</td>
                 <td align="right">
-                    <a class="btn btn-primary" href="~/Asiakkaat/Edit/@item.AsiakasID">Muokkaa</a>
-                    <a class="btn btn-primary" href="~/Asiakkaat/Details/@item.AsiakasID">Tiedot</a>
-                    <a class="btn btn-danger" href="~/Asiakkaat/Delete/@item.AsiakasID">Poista</a>
+                    <a class="btn btn-primary" href="~/Asiakkaat/Edit/@item.AsiakasID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a class="btn btn-primary" href="~/Asiakkaat/Details/@item.AsiakasID"><i class="fa fa-list" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" href="~/Asiakkaat/Delete/@item.AsiakasID"><i class="fa fa-times" aria-hidden="true"></i></a>
                     @*@Html.ActionLink("Muokkaa", "Edit", new { id = item.AsiakasID }) |
-                        @Html.ActionLink("Lisätiedot", "Details", new { id = item.AsiakasID }) |
-                        @Html.ActionLink("Poista", "Delete", new { id = item.AsiakasID })*@
+        @Html.ActionLink("Lisätiedot", "Details", new { id = item.AsiakasID }) |
+        @Html.ActionLink("Poista", "Delete", new { id = item.AsiakasID })*@
                 </td>
             </tr>
         }
