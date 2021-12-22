@@ -50,3 +50,9 @@ footer {
         display: none !important;
     }
 }
+
+@media (max-width : 1000px) {
+    .kuva5 {
+        display: none !important;
+    }
+}

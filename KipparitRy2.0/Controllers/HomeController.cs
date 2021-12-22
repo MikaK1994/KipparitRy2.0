@@ -98,7 +98,7 @@ namespace KipparitRy2._0.Controllers
                 {
                     msg = "Tilaisuuden osallistujamäärä on valitettavasti täynnä";
                     TempData["ErrorMessage"] = msg;
-                    return RedirectToAction("ReDirect");
+                    return RedirectToAction("Index");
                 }
 
                 var kayttoehdot = rekisteroinutasiakas.EhdotBox;
@@ -112,7 +112,7 @@ namespace KipparitRy2._0.Controllers
                 rekisteroitymiset.TilaisuusID = (int)rekisteroinutasiakas.TilaisuusID;
                 db.Rekisteroitymiset.Add(rekisteroitymiset);
                 db.SaveChanges();
-                return RedirectToAction("ReDirect", "Home");
+                return RedirectToAction("ReDirect2", "Home");
             }
 
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", rekisteroinutasiakas.PostiID);
@@ -141,6 +141,10 @@ namespace KipparitRy2._0.Controllers
             return View();
         }
         public ActionResult ReDirect()
+        {
+            return View();
+        }
+        public ActionResult ReDirect2()
         {
             return View();
         }
