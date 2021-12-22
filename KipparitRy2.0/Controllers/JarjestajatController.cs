@@ -215,10 +215,18 @@ namespace KipparitRy2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            try {
             Jarjestajat jarjestajat = db.Jarjestajat.Find(id);
             db.Jarjestajat.Remove(jarjestajat);
             db.SaveChanges();
             return RedirectToAction("Index");
+            }
+            catch
+            {
+                Jarjestajat jarjestajat = db.Jarjestajat.Find(id);
+                ViewBag.Error = "Et voi poistaa kyseistä järjestäjää, sillä tämä on järjestäjänä tilaisuudessa. Poistaaksesi järjestäjän sinun täytyy ensin poistaa tilaisuus, jossa järjestäjä on järjestäjänä tai vaihtaa tilaisuuden järjestäjää.";
+                return View(jarjestajat);
+            }
         }
 
         protected override void Dispose(bool disposing)

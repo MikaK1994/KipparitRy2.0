@@ -130,7 +130,7 @@ namespace KipparitRy2._0.Controllers
                     .Select(s => new
                     {
                         Text = s.Postitoimipaikka + ", " + s.Postinumero,
-                        Value = s.Postinumero
+                        Value = s.PostiID
                     })
                     .ToList();
 
@@ -180,7 +180,7 @@ namespace KipparitRy2._0.Controllers
                     .Select(s => new
                     {
                         Text = s.Postitoimipaikka + ", " + s.Postinumero,
-                        Value = s.Postinumero
+                        Value = s.PostiID
                     })
                     .ToList();
 
@@ -233,10 +233,19 @@ namespace KipparitRy2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Asiakkaat asiakkaat = db.Asiakkaat.Find(id);
-            db.Asiakkaat.Remove(asiakkaat);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Asiakkaat asiakkaat = db.Asiakkaat.Find(id);
+                db.Asiakkaat.Remove(asiakkaat);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                Asiakkaat asiakkaat = db.Asiakkaat.Find(id);
+                ViewBag.Error = "Et voi poistaa asiakasta, sillä asiakas on rekisteröitynyt tilaisuuteen. Poistaaksesi asiakkaan sinun täytyy ensin poistaa asiakas rekisteröitymisistä.";
+                return View(asiakkaat);
+            }
         }
 
         protected override void Dispose(bool disposing)

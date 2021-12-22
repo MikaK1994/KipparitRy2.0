@@ -112,7 +112,7 @@ namespace KipparitRy2._0.Controllers
                 rekisteroitymiset.TilaisuusID = (int)rekisteroinutasiakas.TilaisuusID;
                 db.Rekisteroitymiset.Add(rekisteroitymiset);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ReDirect", "Home");
             }
 
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", rekisteroinutasiakas.PostiID);

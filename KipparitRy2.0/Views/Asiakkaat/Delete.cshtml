@@ -17,10 +17,16 @@
             <dt>@Html.DisplayNameFor(model => model.Osoite)</dt>
             <dd>@Html.DisplayFor(model => model.Osoite)</dd>
             <dt>@Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)</dt>
-            <dd>@Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>
+            <dd>@Html.DisplayFor(model => model.Postitoimipaikat.Postinumero), @Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>
             <dt>Liittymispäivä@*@Html.DisplayNameFor(model => model.RekisterointiPvm)*@</dt>
             <dd>@Html.DisplayFor(model => model.RekisterointiPvm)</dd>
         </dl>
+        <div class="text-danger">
+            @ViewBag.Error
+            <p>
+
+            </p>
+        </div>
 
         @using (Html.BeginForm())
         {
