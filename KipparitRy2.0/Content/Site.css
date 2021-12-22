@@ -44,3 +44,9 @@ footer {
         width: 100%;
     }
 }
+
+@media (max-width : 967px) {
+    .image1 {
+        display: none !important;
+    }
+}

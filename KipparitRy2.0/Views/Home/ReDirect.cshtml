@@ -5,7 +5,8 @@
 
     <h2>Kirjaudu sisään</h2>
 
-
+    <br />
+    <h4 style="color:red">Varmista että antamasi käyttäjätunnus ja salasana ovat oikeat!</h4>
     <br />
     @*Button to Open the Modal*@
     <p>
@@ -14,6 +15,45 @@
         </button>
     </p>
 
+    <br />
+    @*<h3>Carousel</h3>*@
+    @*Karuselli*@
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+            <li data-target="#demo" data-slide-to="4"></li>
+        </ul>
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/image/eka.jpg" alt="eka vene" width="1024" height="682">
+            </div>
+            <div class="carousel-item">
+                <img src="~/image/toka.jpg" alt="toinen vene" width="1024" height="682">
+            </div>
+            <div class="carousel-item">
+                <img src="~/image/kolmas.jpg" alt="kolmas vene" width="1024" height="682">
+            </div>
+            <div class="carousel-item">
+                <img src="~/image/neljas.jpg" alt="ankkuri" width="1024" height="682">
+            </div>
+            <div class="carousel-item">
+                <img src="~/image/viides.jpg" alt="viides kuva" width="1024" height="682">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
 
     @{
         Html.RenderPartial("_LoginModal");
