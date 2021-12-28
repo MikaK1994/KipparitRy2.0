@@ -19,7 +19,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="~/Home/Index">ETUSIVU @*<span class="sr-only">(current)</span>*@</a>
             </li>
             <li class="nav-item">
@@ -46,3 +46,15 @@
         </ul>
     </div>
 </nav>
+
+<script type="text/javascript">
+    $(function () {
+        var current = location.pathname;
+        $('nav li a').each(function () {
+            var $this = $(this);
+            if ($this.attr('href').indexOf(current) !== -1) {
+                $this.addClass('active');
+            }
+        })
+    })
+</script>
