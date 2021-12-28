@@ -216,10 +216,20 @@ namespace KipparitRy2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tilaisuudet tilaisuudet = db.Tilaisuudet.Find(id);
-            db.Tilaisuudet.Remove(tilaisuudet);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Tilaisuudet tilaisuudet = db.Tilaisuudet.Find(id);
+                db.Tilaisuudet.Remove(tilaisuudet);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                Tilaisuudet tilaisuudet = db.Tilaisuudet.Find(id);
+                ViewBag.Error = "Et voi poistaa tilaisuutta, sillä on asiakkaita. Poistaaksesi tilaisuuden sinun täytyy ensin poistaa siitä asiakkaat.";
+                return View(tilaisuudet);
+            }
+
         }
 
         protected override void Dispose(bool disposing)

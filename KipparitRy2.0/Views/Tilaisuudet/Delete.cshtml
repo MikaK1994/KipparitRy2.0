@@ -5,44 +5,30 @@
         ViewBag.Title = "Delete";
     }
 
-    <h2>Poista</h2>
+    <h2>Poista tilaisuus</h2>
 
     <div>
         <hr />
         <dl class="dl-horizontal">
-            <dt>
-                Tilaisuus
-            </dt>
+            <dt>Tilaisuus</dt>
+            <dd>@Html.DisplayFor(model => model.Nimi)</dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nimi)
-            </dd>
+            <dt>Päivämäärä</dt>
+            <dd>@Html.DisplayFor(model => model.Pvm)</dd>
 
-            <dt>
-                Päivämäärä
-            </dt>
+            <dt>Max osallistujat</dt>
+            <dd>@Html.DisplayFor(model => model.MaxMaara)</dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Pvm)
-            </dd>
-
-            <dt>
-                Max osallistujat
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.MaxMaara)
-            </dd>
-
-            <dt>
-                Järjestäjä
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Jarjestajat1.Nimi)
-            </dd>
-
+            <dt>Järjestäjä</dt>
+            <dd>@Html.DisplayFor(model => model.Jarjestajat1.Nimi)</dd>
         </dl>
+
+        <div class="text-danger">
+            @ViewBag.Error
+            <p>
+
+            </p>
+        </div>
 
         @using (Html.BeginForm())
         {
