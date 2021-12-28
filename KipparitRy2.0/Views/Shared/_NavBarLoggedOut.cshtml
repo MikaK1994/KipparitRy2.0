@@ -36,13 +36,12 @@
 </nav>
 
 <script type="text/javascript">
-    $(function () {
-        var current = location.pathname;
-        $('nav li a').each(function () {
-            var $this = $(this);
-            if ($this.attr('href').indexOf(current) !== -1) {
-                $this.addClass('active');
+    jQuery(function ($) {
+        var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+        $('nav a').each(function () {
+            if (this.href === path) {
+                $(this).addClass('active');
             }
-        })
-    })
+        });
+    });
 </script>
