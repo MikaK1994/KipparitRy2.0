@@ -25,7 +25,7 @@ namespace KipparitRy2._0.Models
         public int TilaisuusID { get; set; }
         public string Nimi { get; set; }
         public Nullable<int> JarjestajaID { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy H:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy H:mm}")]
         public Nullable<System.DateTime> Pvm { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Vain nolla ja positiiviset numerot ovat sallittuja.")]

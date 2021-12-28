@@ -12,7 +12,16 @@
         <script src="~/Scripts/jquery.datetimepicker.js"></script>
         <script>
         @**$('#Pvm').datetimepicker({ footer: true, modal: false, format: 'dd.mm.yyyy HH:MM', uiLibrary: 'bootstrap4' });*@
-        $('.datetimepicker').datetimepicker();
+            $('.datetimepicker').datetimepicker({
+                minDate: getFormattedDate(new Date())
+            });
+
+            function getFormattedDate(date) {
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var year = date.getFullYear().toString().slice(2);
+                return day + '-' + month + '-' + year;
+            }
         </script>
     }
 

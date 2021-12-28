@@ -15,7 +15,8 @@
         @**$('#RekisterointiPvm').datetimepicker({ footer: true, modal: false, format: 'dd.mm.yyyy HH:MM', uiLibrary: 'bootstrap4' });*@
         $(function () {
             $('.datepicker').datepicker({
-                dateFormat: "yy/mm/dd",
+                format: "mm/dd/yyyy",
+                @*dateFormat: "yy/mm/dd",*@
                 changeMonth: true,
                 changeYear: true
             });
