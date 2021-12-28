@@ -244,10 +244,12 @@
     <Content Include="image\eka.jpg" />
     <Content Include="image\kolmas.jpg" />
     <Content Include="image\lokorivi.jpg" />
+    <Content Include="image\Lokorivi2.png" />
     <Content Include="image\neljas.jpg" />
     <Content Include="image\Ocean.jpg" />
     <Content Include="image\Ocean1.jpg" />
     <Content Include="image\Ocean2.jpg" />
+    <Content Include="image\Ocean3.jpg" />
     <Content Include="image\toka.jpg" />
     <Content Include="image\viides.jpg" />
     <Content Include="Models\KipparitModel.Context.tt">

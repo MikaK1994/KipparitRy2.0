@@ -9,8 +9,26 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/fontawesome")
+    <style>
+        @@media only screen and (max-width: 1023px) {
+            .logo-link {
+                float: none;
+                text-align: center;
+                margin: 0 !important;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
-<body background="~/image/Ocean1.jpg">
+<body background="~/image/Ocean3.jpg" style="background-size: 125%;">
+    <header>
+        <br />
+        <a class="logo-link" href="https://porvoonkipparit.fi/">
+            <img src="~/image/Lokorivi2.png" class="logo-link" alt="Porvoon Kipparit Logo" height="146" style="display: block; margin-left: auto; margin-right: auto; padding: 10px;" />
+        </a>
+        <br />
+    </header>
     @{
         if (Session["Kayttajanimi"] == null)
         {
