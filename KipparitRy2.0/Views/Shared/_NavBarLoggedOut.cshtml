@@ -19,8 +19,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="~/Home/Index">ETUSIVU <span class="sr-only">(current)</span></a>
+            <li class="nav-item" @*active tohon hipsukoiden sisään*@>
+                <a class="nav-link" href="~/Home/Index">ETUSIVU@* <span class="sr-only">(current)</span>*@</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="~/Home/About">TIETOA MEISTÄ</a>
@@ -29,8 +29,18 @@
                 <a class="nav-link" href="~/Home/Contact">YHTEYSTIEDOT</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onmouseover="this.style.cursor='pointer'" data-toggle="modal" data-target="#myModal">KIRJAUDU SISÄÄN</a>
+                <a class="nav-link" onmouseover="this.style.cursor='pointer'" data-toggle="modal" data-target="#myModal">YLLÄPITO</a>
             </li>
         </ul>
     </div>
 </nav>
+
+<script type="text/javascript">
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('nav a').
+        forEach(link => {
+            if (link.href.includes(`${activePage}`)) {
+                link.classList.add('active');
+            }
+        })
+</script>
