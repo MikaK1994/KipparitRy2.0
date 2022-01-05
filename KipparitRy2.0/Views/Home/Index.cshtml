@@ -15,10 +15,9 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal" style="align-items: center;">
+    <div class="form-check-inline" style="align-items:end;">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
         <div class="form-group">
             @Html.LabelFor(model => model.Nimi, "Nimi *", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -42,7 +41,8 @@
                 @Html.ValidationMessageFor(model => model.Osoite, "", new { @class = "text-danger" })
             </div>
         </div>
-
+    </div>
+    <div class="form-check-inline" style="align-items:end;">
         @*<div class="form-group">
             @Html.LabelFor(model => model.Postitoimipaikat.Postitoimipaikka, "Postitoimipaikka", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-    }
+}
     </div>
 </div>
 

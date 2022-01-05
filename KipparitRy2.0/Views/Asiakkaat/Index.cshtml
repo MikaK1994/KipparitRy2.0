@@ -8,6 +8,22 @@
         ViewBag.Title = "Index";
     }
 
+    <style>
+        @@media (max-width: 767px) {
+            .sposti, .paiva {
+                display: none;
+            }
+            .btn {
+                     margin: 2px;
+                 }
+            }
+            .table {
+                max-width: 100%;
+                height: auto;
+                margin-left: -5%;
+            }
+    </style>
+
     <h2>Asiakkaat</h2>
 
     @using (Html.BeginForm("Index", "Asiakkaat", FormMethod.Get))
@@ -30,12 +46,12 @@
     <br /><br />
     <table class="table table-striped">
         <tr>
-            <th>@Html.ActionLink("Liittymispäivä", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.currentFilter })</th>
+            <th class="paiva">@Html.ActionLink("Liittymispäivä", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.currentFilter })</th>
             <th>
                 @Html.ActionLink("Nimi", "Index", new { sortOrder = ViewBag.CustomerNameSortParm, currentFilter = ViewBag.currentFilter })
                 @*@Html.DisplayNameFor(model => model.Nimi)*@
             </th>
-            <th>Sähköposti@*@Html.DisplayNameFor(model => model.Sposti)*@</th>
+            <th class="sposti">Sähköposti</th>
             <th>Osoite@*@Html.DisplayNameFor(model => model.Osoite)*@</th>
             @*<th>@Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)</th>*@
             <th></th>
@@ -44,9 +60,9 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Convert.ToDateTime(item.RekisterointiPvm).ToString("dd.MM.yyyy")</td>
+                <td class="paiva">@Convert.ToDateTime(item.RekisterointiPvm).ToString("dd.MM.yyyy")</td>
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
-                <td>@Html.DisplayFor(modelItem => item.Sposti)</td>
+                <td class="sposti">@Html.DisplayFor(modelItem => item.Sposti)</td>
                 <td>@Html.DisplayFor(modelItem => item.Osoite), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postinumero), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postitoimipaikka)</td>
                 <td align="right">
                     <a class="btn btn-primary" href="~/Asiakkaat/Edit/@item.AsiakasID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

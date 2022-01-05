@@ -30,12 +30,14 @@ namespace KipparitRy2._0.Controllers
             }
             else
             {
-                //ViewBag.LoginMessage = "Kirjautuminen epäonnistui.";
+                ViewBag.ErrorMessage = "Kirjautuminen epäonnistui.";
                 ViewBag.LoggedStatus = "Out";
                 ViewBag.LoginError = 1; //Pakoketaan modaali login-ruutu uudelleen, koska kirjautumisyritys epäonnistui
-                LoginModel.ErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
+                //LoginModel.ErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
                 return View("ReDirect", LoginModel);
+                //return View("Index", LoginModel);
                 //return View("_LoginModal", LoginModel);
+                //return PartialView("_LoginModal", LoginModel);
                 //return RedirectToAction("Index", "Home");
             }
         }
