@@ -7,6 +7,24 @@
         ViewBag.Title = "Index";
     }
 
+    <style>
+        @@media (max-width: 767px) {
+            .asiakas {
+                display: none;
+            }
+
+            .btn {
+                margin: 2px;
+            }
+        }
+
+        .table {
+            max-width: 100%;
+            height: auto;
+            margin-left: -5%;
+        }
+    </style>
+
     <h2>Rekisteröitymiset</h2>
 
     @using (Html.BeginForm("Index", "Rekisteroitymiset", FormMethod.Get))
@@ -25,10 +43,7 @@
     </p>
     <table class="table table-striped">
         <tr>
-            <th>
-                Asiakas
-                @*@Html.DisplayNameFor(model => model.Asiakkaat.Nimi)*@
-            </th>
+            <th class="asiakas">Asiakas</th>
             <th>
                 @Html.ActionLink("Tilaisuus", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.currentFilter })
                 @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
@@ -39,7 +54,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.Asiakkaat.Nimi)</td>
+                <td class="asiakas">@Html.DisplayFor(modelItem => item.Asiakkaat.Nimi)</td>
                 <td>@Html.DisplayFor(modelItem => item.Tilaisuudet.Nimi)</td>
 
                 <td align="right">

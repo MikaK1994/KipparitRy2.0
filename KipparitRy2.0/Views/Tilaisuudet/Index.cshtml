@@ -7,6 +7,24 @@
         ViewBag.Title = "Index";
     }
 
+    <style>
+        @@media (max-width: 767px) {
+            .paiva {
+                display: none;
+            }
+
+            .btn {
+                margin: 2px;
+            }
+        }
+
+        .table {
+            max-width: 100%;
+            height: auto;
+            margin-left: -5%;
+        }
+    </style>
+
     <h2>Tilaisuudet</h2>
 
     @using (Html.BeginForm("Index", "Tilaisuudet", FormMethod.Get))
@@ -26,7 +44,7 @@
     <table class="table table-striped">
         <tr>
             <th>Tilaisuus</th>
-            <th>@Html.ActionLink("Päivämäärä", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.currentFilter })</th>
+            <th class="paiva">@Html.ActionLink("Päivämäärä", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.currentFilter })</th>
             <th>Max osallistujat</th>
             <th>Järjestäjä</th>
             <th></th>
@@ -36,7 +54,7 @@
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
-                <td>@Convert.ToDateTime(item.Pvm).ToString("dd.MM.yyyy klo. HH:mm")</td>
+                <td class="paiva">@Convert.ToDateTime(item.Pvm).ToString("dd.MM.yyyy klo. HH:mm")</td>
                 <td>@Html.DisplayFor(modelItem => item.MaxMaara)</td>
                 <td>@Html.DisplayFor(modelItem => item.Jarjestajat1.Nimi)</td>
                 <td align="right">
