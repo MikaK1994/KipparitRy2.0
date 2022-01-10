@@ -8,17 +8,31 @@
     }
 
     <style>
-        @@media (max-width: 767px) {
-            .paiva {
+        @@media (max-width: 800px) {
+            .paiva, .max {
                 display: none;
             }
             .btn {
                 margin: 2px;
             }
+            .btn-group1 {
+                cursor: pointer; /* Pointer/hand icon */
+                width: 50%; /* Set a width if needed */
+                display: block; /* Make the buttons appear below each other */
+                float: right;
+            }
             .table {
                 max-width: 100%;
                 height: auto;
-                margin-left: -5%;
+            }
+        }
+
+        @@media (max-width: 400px) {
+
+            .table {
+                max-width: 100%;
+                height: auto;
+                margin-left: -6.5%;
             }
         }
     </style>
@@ -43,7 +57,7 @@
         <tr>
             <th>Tilaisuus</th>
             <th class="paiva">@Html.ActionLink("Päivämäärä", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.currentFilter })</th>
-            <th>Max osallistujat</th>
+            <th class="max">Max osallistujat</th>
             <th>Järjestäjä</th>
             <th></th>
         </tr>
@@ -53,12 +67,12 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
                 <td class="paiva">@Convert.ToDateTime(item.Pvm).ToString("dd.MM.yyyy klo. HH:mm")</td>
-                <td>@Html.DisplayFor(modelItem => item.MaxMaara)</td>
+                <td class="max">@Html.DisplayFor(modelItem => item.MaxMaara)</td>
                 <td>@Html.DisplayFor(modelItem => item.Jarjestajat1.Nimi)</td>
-                <td align="right">
-                    <a class="btn btn-primary" href="~/Tilaisuudet/Edit/@item.TilaisuusID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                    <a class="btn btn-primary" href="~/Tilaisuudet/Details/@item.TilaisuusID"><i class="fa fa-list" aria-hidden="true"></i></a>
-                    <a class="btn btn-danger" href="~/Tilaisuudet/Delete/@item.TilaisuusID"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <td align="right" class="btn-group1">
+                    <a class="btn btn-primary" style="margin:2px;" href="~/Tilaisuudet/Edit/@item.TilaisuusID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a class="btn btn-primary" style="margin:2px;" href="~/Tilaisuudet/Details/@item.TilaisuusID"><i class="fa fa-list" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" style="margin:2px;" href="~/Tilaisuudet/Delete/@item.TilaisuusID"><i class="fa fa-times" aria-hidden="true"></i></a>
 
                     @*@Html.ActionLink("Muokkaa", "Edit", new { id=item.TilaisuusID }) |
                         @Html.ActionLink("Lisätiedot", "Details", new { id=item.TilaisuusID }) |

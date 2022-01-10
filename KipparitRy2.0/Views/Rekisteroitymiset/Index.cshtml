@@ -8,17 +8,17 @@
     }
 
     <style>
-        @@media (max-width: 767px) {
-            .asiakas {
-                display: none;
-            }
-            .btn {
-                margin: 2px;
+        @@media (max-width: 400px) {
+            .btn-group1 {
+                cursor: pointer; /* Pointer/hand icon */
+                width: 50%; /* Set a width if needed */
+                display: block; /* Make the buttons appear below each other */
+                float: right;
             }
             .table {
                 max-width: 100%;
                 height: auto;
-                margin-left: -5%;
+                margin-left: -8%;
             }
         }
     </style>
@@ -55,10 +55,10 @@
                 <td class="asiakas">@Html.DisplayFor(modelItem => item.Asiakkaat.Nimi)</td>
                 <td>@Html.DisplayFor(modelItem => item.Tilaisuudet.Nimi)</td>
 
-                <td align="right">
-                    <a class="btn btn-primary" href="~/Rekisteroitymiset/Edit/@item.RekisterointiID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                    <a class="btn btn-primary" href="~/Rekisteroitymiset/Details/@item.RekisterointiID"><i class="fa fa-list" aria-hidden="true"></i></a>
-                    <a class="btn btn-danger" href="~/Rekisteroitymiset/Delete/@item.RekisterointiID"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <td align="right" class="btn-group1">
+                    <a class="btn btn-primary" style="margin:2px;" href="~/Rekisteroitymiset/Edit/@item.RekisterointiID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a class="btn btn-primary" style="margin:2px;" href="~/Rekisteroitymiset/Details/@item.RekisterointiID"><i class="fa fa-list" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" style="margin:2px;" href="~/Rekisteroitymiset/Delete/@item.RekisterointiID"><i class="fa fa-times" aria-hidden="true"></i></a>
 
                     @*@Html.ActionLink("Muokkaa", "Edit", new { id=item.RekisterointiID }) |
                         @Html.ActionLink("Lisätiedot", "Details", new { id=item.RekisterointiID }) |

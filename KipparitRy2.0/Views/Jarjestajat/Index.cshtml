@@ -7,6 +7,20 @@
         ViewBag.Title = "Index";
     }
 
+    <style>
+        @@media (max-width: 400px) {
+            .btn {
+                margin: 2px;
+            }
+            .btn-group1 {
+                cursor: pointer; /* Pointer/hand icon */
+                width: 50%; /* Set a width if needed */
+                display: block; /* Make the buttons appear below each other */
+                float: right;
+            }
+        }
+    </style>
+
     <h2>Järjestäjät</h2>
 
     @using (Html.BeginForm("Index", "Jarjestajat", FormMethod.Get))
@@ -37,7 +51,7 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
                 @*<td>@Html.DisplayFor(modelItem => item.Tilaisuudet.Nimi)</td>*@
-                <td align="right">
+                <td align="right" class="btn-group1">
                     <a class="btn btn-primary" href="~/Jarjestajat/Edit/@item.JarjestajaID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     <a class="btn btn-primary" href="~/Jarjestajat/Details/@item.JarjestajaID"><i class="fa fa-list" aria-hidden="true"></i></a>
                     <a class="btn btn-danger" href="~/Jarjestajat/Delete/@item.JarjestajaID"><i class="fa fa-times" aria-hidden="true"></i></a>
