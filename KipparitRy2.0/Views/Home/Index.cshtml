@@ -4,6 +4,59 @@
     ViewBag.Title = "Kotisivu";
 }
 
+<style>
+    .column1 {
+        float: left;
+        width: 50%;
+        padding-left: 17%;
+        white-space: nowrap
+    }
+
+    .column2 {
+        float: left;
+        width: 50%;
+        padding-right: 17%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    label {
+        display: inline-block;
+    }
+
+    @@media (max-width : 1000px) {
+    .column1 {
+        width: 100%;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+    .column2 {
+        width: 100%;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+    @@media (max-width : 950px) {
+        .column1 {
+            width: 100%;
+            padding-left: 10%;
+            padding-right: 4%;
+        }
+
+        .column2 {
+            width: 100%;
+            padding-left: 10%;
+            padding-right: 4%;
+        }
+    }
+</style>
+
 <div class="registration" style="margin-top: 20px; background-color: white; border: 2px solid #346beb; " >
     <div class="margin" style="margin: 25px">
         @*<h2>@ViewBag.Title</h2>*@
@@ -15,83 +68,79 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-check-inline" style="align-items:end;">
+    <div class="row">
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nimi, "Nimi *", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nimi, new { htmlAttributes = new { @class = "form-control", placeholder = "", required = "required" } })
-                @Html.ValidationMessageFor(model => model.Nimi, "", new { @class = "text-danger" })
+        <div class="column1">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nimi, "Nimi *", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nimi, new { htmlAttributes = new { @class = "form-control", placeholder = "", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Nimi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sposti, "Sähköposti *", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sposti, new { htmlAttributes = new { @class = "form-control", placeholder = "", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Sposti, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Osoite, "Osoite *", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Osoite, new { htmlAttributes = new { @class = "form-control", placeholder = "", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Osoite, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sposti, "Sähköposti *", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sposti, new { htmlAttributes = new { @class = "form-control", placeholder = "", required = "required" } })
-                @Html.ValidationMessageFor(model => model.Sposti, "", new { @class = "text-danger" })
+        <div class="column2">
+            <div class="form-group" style="white-space: nowrap">
+                @Html.LabelFor(model => model.PostiID, "Postinumero *", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10" style="white-space: nowrap">
+                    @*@Html.DropDownList("PostiID", null, htmlAttributes: new { @class = "form-control" })*@
+                    @Html.DropDownListFor(model => model.PostiID, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PostiID, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Osoite, "Osoite *", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Osoite, new { htmlAttributes = new { @class = "form-control", placeholder = "", required = "required" } })
-                @Html.ValidationMessageFor(model => model.Osoite, "", new { @class = "text-danger" })
+            <div class="form-group" style="white-space: nowrap">
+                @Html.LabelFor(model => model.Tilaisuudet.TilaisuusID, "Tilaisuus *", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TilaisuusID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Tilaisuudet.TilaisuusID, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-check-inline" style="align-items:end;">
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.Postitoimipaikat.Postitoimipaikka, "Postitoimipaikka", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Postitoimipaikat.Postitoimipaikka, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Postitoimipaikat.Postitoimipaikka, "", new { @class = "text-danger" })
+
+            <h4 style="color:red">
+                @ViewBag.Message
+                @TempData["ErrorMessage"]
+            </h4>
+
+            <div class="form-group">
+                <div style="white-space: nowrap; font-weight: bold;">
+                    @Html.LabelFor(model => model.EhdotBox, "Hyväksy käyttöehdot *", new { @class = "control-label col-md-2" })
+                </div>
+                <div style="padding-left:6%;">
+                    @Html.EditorFor(model => model.EhdotBox)
+                </div>
+                    @Html.ValidationMessageFor(model => model.EhdotBox)
+                <div class="col-md-10">
+                    <p class="px-1"><a href="~/Home/_Privacy" class="Button" data-toggle="modal" data-target="#kayttoehdot">Lue käyttöehdot</a></p>
+                </div>
             </div>
-        </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PostiID, "Postinumero *", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @*@Html.DropDownList("PostiID", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.DropDownListFor(model => model.PostiID, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PostiID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <h4 style="color:red; font-size: 15px; padding-left:5%;">
+                @ViewBag.Message
+                @TempData["ErrorMessage2"]
+            </h4>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Tilaisuudet.TilaisuusID, "Tilaisuus *", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("TilaisuusID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Tilaisuudet.TilaisuusID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <h4 style="color:red">
-            @ViewBag.Message
-            @TempData["ErrorMessage"]
-        </h4>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EhdotBox, "Hyväksy käyttöehdot *", new { @class = "control-label col-md-2" })
-            @*<div class="col-md-10">*@
-            @Html.EditorFor(model => model.EhdotBox)
-            @Html.ValidationMessageFor(model => model.EhdotBox)
-            @*</div>*@
-            <div class="col-md-10">
-                <p class="px-1"><a href="~/Home/_Privacy" class="Button" data-toggle="modal" data-target="#kayttoehdot">Lue käyttöehdot</a></p>
-            </div>
-        </div>
-
-        <h4 style="color:red">
-            @ViewBag.Message
-            @TempData["ErrorMessage2"]
-        </h4>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Lisää" class="btn btn-success" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lisää" class="btn btn-success" />
+                </div>
             </div>
         </div>
     </div>
