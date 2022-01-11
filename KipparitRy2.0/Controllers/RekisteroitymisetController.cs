@@ -75,9 +75,6 @@ namespace KipparitRy2._0.Controllers
                 int pageSize = (pagesize ?? 10); //Tämä palauttaa sivukoon taikka jos pagesize on null, niin palauttaa koon 10 riviä per sivu
                 int pageNumber = (page ?? 1); //int pageNumber on sivuparametrien arvojen asetus. Tämä palauttaa sivunumeron taikka jos page on null, niin palauttaa numeron yksi
                 return View(rekisteroitymiset.ToPagedList(pageNumber, pageSize));
-
-                //var asiakkaats = db.Asiakkaat.Include(a => a.Postitoimipaikat);
-                //return View(asiakkaats.ToList());
             }
         }
 

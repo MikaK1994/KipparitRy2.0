@@ -29,7 +29,6 @@ namespace KipparitRy2._0.Controllers
 
                 ViewBag.CurrentSort = sortOrder;
                 //if-lause vb.pnsp jälkeen = Jos ensimmäinen lause on tosi ? toinen lause toteutuu : jos epätosi, niin tämä kolmas lause toteutuu
-                //ViewBag.EventNameSortParm = String.IsNullOrEmpty(sortOrder) ? "event_desc" : "";
                 ViewBag.DateSortParm = sortOrder == "Date" ? "Date_desc" : "Date";
 
 
@@ -88,8 +87,6 @@ namespace KipparitRy2._0.Controllers
                 int pageSize = (pagesize ?? 10); //Tämä palauttaa sivukoon taikka jos pagesize on null, niin palauttaa koon 10 riviä per sivu
                 int pageNumber = (page ?? 1); //int pageNumber on sivuparametrien arvojen asetus. Tämä palauttaa sivunumeron taikka jos page on null, niin palauttaa numeron yksi
                 return View(tilaisuudet.ToPagedList(pageNumber, pageSize));
-                //var tilaisuudet = db.Tilaisuudet.Include(t => t.Jarjestajat1);
-                //return View(tilaisuudet.ToList());
             }
         }
 
@@ -124,7 +121,6 @@ namespace KipparitRy2._0.Controllers
             }
             else
             {
-                //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi");
                 ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
                 return View();
             }
@@ -166,7 +162,6 @@ namespace KipparitRy2._0.Controllers
                 {
                     return HttpNotFound();
                 }
-                //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
                 ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
                 return View(tilaisuudet);
             }

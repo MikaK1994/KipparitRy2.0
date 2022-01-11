@@ -10,16 +10,8 @@
     <div>
         <hr />
         <dl class="dl-horizontal">
-            <dt>Järjestäjän nimi@*@Html.DisplayNameFor(model => model.Nimi)*@</dt>
-
+            <dt>Järjestäjän nimi</dt>
             <dd>@Html.DisplayFor(model => model.Nimi)</dd>
-
-            @*<dt>
-                //@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)
-                Tilaisuus
-            </dt>
-
-            <dd>@Html.DisplayFor(model => model.Tilaisuudet.Nimi)</dd>*@
         </dl>
         <div class="text-danger">
             @ViewBag.Error
@@ -34,8 +26,6 @@
 
             <div class="form-actions no-color">
                 <input type="submit" value="Poista" class="btn btn-danger" /> |
-                @*@Html.ActionLink("Back to List", "Index")*@
-
                 <a class="btn btn-primary" href="~/Jarjestajat/">Takaisin listaan</a>
             </div>
         }

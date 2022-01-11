@@ -88,9 +88,6 @@ namespace KipparitRy2._0.Controllers
                 int pageSize = (pagesize ?? 10); //Tämä palauttaa sivukoon taikka jos pagesize on null, niin palauttaa koon 10 riviä per sivu
                 int pageNumber = (page ?? 1); //int pageNumber on sivuparametrien arvojen asetus. Tämä palauttaa sivunumeron taikka jos page on null, niin palauttaa numeron yksi
                 return View(asiakkaat.ToPagedList(pageNumber, pageSize));
-
-                //var asiakkaats = db.Asiakkaat.Include(a => a.Postitoimipaikat);
-                //return View(asiakkaats.ToList());
             }
         }
 
@@ -125,7 +122,6 @@ namespace KipparitRy2._0.Controllers
             }
             else
             {
-                //ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka");
                 var postit = db.Postitoimipaikat.OrderBy(s => s.Postitoimipaikka)
                     .Select(s => new
                     {
@@ -153,7 +149,6 @@ namespace KipparitRy2._0.Controllers
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postitoimipaikat.PostiID);
             ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
             return View(asiakkaat);
         }

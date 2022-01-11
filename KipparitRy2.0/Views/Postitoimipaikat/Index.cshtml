@@ -20,17 +20,10 @@
         </div>
     }
 
-    @*<p>
-            <a class="btn btn-primary" href="~/Postitoimipaikat/Create/">Luo uusi postitoimipaikka</a>
-        </p>*@
     <table class="table table-striped">
         <tr>
-            <th>
-                Postitoimipaikka
-            </th>
-            <th>
-                Postinumero
-            </th>
+            <th>Postitoimipaikka</th>
+            <th>Postinumero</th>
             <th></th>
         </tr>
 
@@ -39,11 +32,6 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Postitoimipaikka)</td>
                 <td>@Html.DisplayFor(modelItem => item.Postinumero)</td>
-                @*<td>
-                        <a class="btn btn-primary" href="~/Postitoimipaikat/Edit/@item.PostiID">Muokkaa</a>
-                        <a class="btn btn-primary" href="~/Postitoimipaikat/Details/@item.PostiID">Tiedot</a>
-                        <a class="btn btn-danger" href="~/Postitoimipaikat/Delete/@item.PostiID">Poista</a>
-                    </td>*@
             </tr>
         }
 

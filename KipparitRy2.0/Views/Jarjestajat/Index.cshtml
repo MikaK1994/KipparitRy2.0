@@ -35,14 +35,11 @@
     }
 
     <p>
-        @*@Html.ActionLink("Create New", "Create")*@
         <a class="btn btn-primary" href="~/Jarjestajat/Create/">Lisää uusi järjestäjä</a>
     </p>
     <table class="table table-striped">
         <tr>
             <th>@Html.ActionLink("Nimi", "Index", new { sortOrder = ViewBag.CustomerNameSortParm, currentFilter = ViewBag.currentFilter })</th>
-            @*<th>@Html.DisplayNameFor(model => model.Nimi)</th>*@
-            @*<th>@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)</th>*@
             <th></th>
         </tr>
 
@@ -50,15 +47,10 @@
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
-                @*<td>@Html.DisplayFor(modelItem => item.Tilaisuudet.Nimi)</td>*@
                 <td align="right" class="btn-group1">
                     <a class="btn btn-primary" href="~/Jarjestajat/Edit/@item.JarjestajaID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     <a class="btn btn-primary" href="~/Jarjestajat/Details/@item.JarjestajaID"><i class="fa fa-list" aria-hidden="true"></i></a>
                     <a class="btn btn-danger" href="~/Jarjestajat/Delete/@item.JarjestajaID"><i class="fa fa-times" aria-hidden="true"></i></a>
-
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.JarjestajaID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.JarjestajaID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.JarjestajaID })*@
                 </td>
             </tr>
         }

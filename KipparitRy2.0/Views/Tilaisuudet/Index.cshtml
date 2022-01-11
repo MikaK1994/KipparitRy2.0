@@ -50,7 +50,6 @@
         </div>
     }
     <p>
-        @*@Html.ActionLink("Luo uusi", "Create")*@
         <a class="btn btn-primary" href="~/Tilaisuudet/Create/">Lisää uusi tilaisuus</a>
     </p>
     <table class="table table-striped">
@@ -73,10 +72,6 @@
                     <a class="btn btn-primary" style="margin:2px;" href="~/Tilaisuudet/Edit/@item.TilaisuusID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     <a class="btn btn-primary" style="margin:2px;" href="~/Tilaisuudet/Details/@item.TilaisuusID"><i class="fa fa-list" aria-hidden="true"></i></a>
                     <a class="btn btn-danger" style="margin:2px;" href="~/Tilaisuudet/Delete/@item.TilaisuusID"><i class="fa fa-times" aria-hidden="true"></i></a>
-
-                    @*@Html.ActionLink("Muokkaa", "Edit", new { id=item.TilaisuusID }) |
-                        @Html.ActionLink("Lisätiedot", "Details", new { id=item.TilaisuusID }) |
-                        @Html.ActionLink("Poista", "Delete", new { id=item.TilaisuusID })*@
                 </td>
             </tr>
         }

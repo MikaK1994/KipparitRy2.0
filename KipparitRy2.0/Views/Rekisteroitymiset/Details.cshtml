@@ -10,31 +10,14 @@
     <div>
         <hr />
         <dl class="dl-horizontal">
-            <dt>
-                Asiakas
-                @*@Html.DisplayNameFor(model => model.Asiakkaat.Nimi)*@
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Asiakkaat.Nimi)
-            </dd>
-
-            <dt>
-                Tilaisuus
-                @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Tilaisuudet.Nimi)
-            </dd>
-
+            <dt>Asiakas</dt>
+            <dd>@Html.DisplayFor(model => model.Asiakkaat.Nimi)</dd>
+            <dt>Tilaisuus</dt>
+            <dd>@Html.DisplayFor(model => model.Tilaisuudet.Nimi)</dd>
         </dl>
     </div>
     <p>
         <a class="btn btn-success" href="~/Rekisteroitymiset/Edit/@Model.RekisterointiID">Muokkaa</a>
         <a class="btn btn-primary" href="~/Rekisteroitymiset/">Takaisin listaan</a>
-
-        @*@Html.ActionLink("Muokkaa", "Edit", new { id = Model.RekisterointiID }) |
-            @Html.ActionLink("Takaisin listaan", "Index")*@
     </p>
 </div>

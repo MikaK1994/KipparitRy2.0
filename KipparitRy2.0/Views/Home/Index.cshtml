@@ -102,7 +102,6 @@
             <div class="form-group" style="white-space: nowrap">
                 @Html.LabelFor(model => model.PostiID, "Postinumero *", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10" style="white-space: nowrap">
-                    @*@Html.DropDownList("PostiID", null, htmlAttributes: new { @class = "form-control" })*@
                     @Html.DropDownListFor(model => model.PostiID, (SelectList)ViewBag.PostiLista, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.PostiID, "", new { @class = "text-danger" })
                 </div>

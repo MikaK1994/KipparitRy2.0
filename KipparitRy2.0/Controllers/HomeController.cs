@@ -33,12 +33,7 @@ namespace KipparitRy2._0.Controllers
                 ViewBag.ErrorMessage = "Kirjautuminen epäonnistui.";
                 ViewBag.LoggedStatus = "Out";
                 ViewBag.LoginError = 1; //Pakoketaan modaali login-ruutu uudelleen, koska kirjautumisyritys epäonnistui
-                //LoginModel.ErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
                 return View("ReDirect", LoginModel);
-                //return View("Index", LoginModel);
-                //return View("_LoginModal", LoginModel);
-                //return PartialView("_LoginModal", LoginModel);
-                //return RedirectToAction("Index", "Home");
             }
         }
         public ActionResult LogOut()
@@ -52,9 +47,6 @@ namespace KipparitRy2._0.Controllers
         public ActionResult Index()
         {
             ViewBag.LoginError = 0; //ei virhettä sisäänkirjautuessa
-
-            //ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero");
-            //Tarviiko tätät edes tässä, kun se on tuolla alemmassa index:ssä?
 
             var postit = db.Postitoimipaikat.OrderBy(s => s.Postitoimipaikka)
             .Select(s => new
@@ -118,7 +110,6 @@ namespace KipparitRy2._0.Controllers
             }
 
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", rekisteroinutasiakas.PostiID);
-            //ViewBag.PostiID = new SelectList(db.Postitoimipaikat, "PostiID", "Postinumero", asiakkaat.PostiID);
             return View(rekisteroinutasiakas);
         }
 

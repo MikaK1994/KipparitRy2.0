@@ -1,5 +1,4 @@
 ﻿<div class="margin">
-    @*@model IEnumerable<Itserekisteröityminen.Models.Asiakkaat>*@
     @model PagedList.IPagedList<KipparitRy2._0.Models.Asiakkaat>
     @using PagedList.Mvc;
     <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
@@ -9,17 +8,13 @@
     }
 
     <style>
-        @@media (max-width: 767px) {
-            .sposti, .paiva {
+        @@media (max-width: 992px) {
+            .sposti, .osoite {
                 display: none;
-            }
-            .btn {
-                margin: 2px;
             }
             .table {
                 max-width: 100%;
                 height: auto;
-                margin-left: -5%;
             }
         }
     </style>
@@ -29,48 +24,36 @@
     @using (Html.BeginForm("Index", "Asiakkaat", FormMethod.Get))
     {
         <div class="input-group">
-            @*Tämä tulostaa paragrafit rinnakkain, eikä erilleen*@
-            @*px-1 meinaa, että ympärillä on paddingiä/tilaa*@
-            <p class="px-1">@Html.Label("Etsi asiakkaan nimellä:")</p> @*Otsikko*@
+            <p class="px-1">@Html.Label("Etsi asiakkaan nimellä:")</p> 
             <p class="px-1">@Html.TextBox("SearchString", ViewBag.currentFilter as string, new { @class = "form-control" })</p> @*Tällä nimellä kontrolleri näkee mitä tekstiboksiin on syötetty *@
-            <p class="px-1"><input type="submit" value="Etsi" class="form-control" /></p> @*buttoni*@
+            <p class="px-1"><input type="submit" value="Etsi" class="form-control" /></p>
         </div>
     }
 
-
-    @*<p>
-            @Html.ActionLink("Lisää asiakas", "Create")
-        </p>
-    *@
     <a class="btn btn-primary" href="~/Asiakkaat/Create/">Lisää uusi asiakas</a>
     <br /><br />
     <table class="table table-striped">
         <tr>
-            <th class="paiva">@Html.ActionLink("Liittymispäivä", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.currentFilter })</th>
+            <th>@Html.ActionLink("Liittymispäivä", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.currentFilter })</th>
             <th>
                 @Html.ActionLink("Nimi", "Index", new { sortOrder = ViewBag.CustomerNameSortParm, currentFilter = ViewBag.currentFilter })
-                @*@Html.DisplayNameFor(model => model.Nimi)*@
             </th>
             <th class="sposti">Sähköposti</th>
-            <th>Osoite@*@Html.DisplayNameFor(model => model.Osoite)*@</th>
-            @*<th>@Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)</th>*@
+            <th class="osoite">Osoite</th>
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
-                <td class="paiva">@Convert.ToDateTime(item.RekisterointiPvm).ToString("dd.MM.yyyy")</td>
+                <td>@Convert.ToDateTime(item.RekisterointiPvm).ToString("dd.MM.yyyy")</td>
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
                 <td class="sposti">@Html.DisplayFor(modelItem => item.Sposti)</td>
-                <td>@Html.DisplayFor(modelItem => item.Osoite), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postinumero), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postitoimipaikka)</td>
-                <td align="right">
-                    <a class="btn btn-primary" href="~/Asiakkaat/Edit/@item.AsiakasID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                    <a class="btn btn-primary" href="~/Asiakkaat/Details/@item.AsiakasID"><i class="fa fa-list" aria-hidden="true"></i></a>
-                    <a class="btn btn-danger" href="~/Asiakkaat/Delete/@item.AsiakasID"><i class="fa fa-times" aria-hidden="true"></i></a>
-                    @*@Html.ActionLink("Muokkaa", "Edit", new { id = item.AsiakasID }) |
-        @Html.ActionLink("Lisätiedot", "Details", new { id = item.AsiakasID }) |
-        @Html.ActionLink("Poista", "Delete", new { id = item.AsiakasID })*@
+                <td class="osoite">@Html.DisplayFor(modelItem => item.Osoite), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postinumero), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postitoimipaikka)</td>
+                <td align="right" class="btn-group-vertical" style="padding: 2px;">
+                    <a class="btn btn-primary" style="margin:2px;" href="~/Asiakkaat/Edit/@item.AsiakasID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a class="btn btn-primary" style="margin:2px;" href="~/Asiakkaat/Details/@item.AsiakasID"><i class="fa fa-list" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" style="margin:2px;" href="~/Asiakkaat/Delete/@item.AsiakasID"><i class="fa fa-times" aria-hidden="true"></i></a>
                 </td>
             </tr>
         }

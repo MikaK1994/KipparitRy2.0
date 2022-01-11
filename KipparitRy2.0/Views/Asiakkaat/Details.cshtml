@@ -11,22 +11,17 @@
         <dl class="dl-horizontal">
             <dt>@Html.DisplayNameFor(model => model.Nimi)</dt>
             <dd>@Html.DisplayFor(model => model.Nimi)</dd>
-            <dt>Sähköposti@*@Html.DisplayNameFor(model => model.Sposti)*@</dt>
+            <dt>Sähköposti</dt>
             <dd>@Html.DisplayFor(model => model.Sposti)</dd>
             <dt>@Html.DisplayNameFor(model => model.Osoite)</dt>
             <dd>@Html.DisplayFor(model => model.Osoite), @Html.DisplayFor(model => model.Postitoimipaikat.Postinumero), @Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>
-            @*<dt>@Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)</dt>
-                <dd>@Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>*@
-            <dt>Liittymispäivä@*@Html.DisplayNameFor(model => model.RekisterointiPvm)*@</dt>
+            <dt>Liittymispäivä</dt>
             <dd>@Html.DisplayFor(model => model.RekisterointiPvm)</dd>
         </dl>
     </div>
     <p>
         <a class="btn btn-success" href="~/Asiakkaat/Edit/@Model.AsiakasID">Muokkaa</a>
         <a class="btn btn-primary" href="~/Asiakkaat/">Takaisin listaan</a>
-
-        @*@Html.ActionLink("Muokkaa", "Edit", new { id = Model.AsiakasID }) |
-            @Html.ActionLink("Takaisin listaan", "Index")*@
     </p>
 
 </div>

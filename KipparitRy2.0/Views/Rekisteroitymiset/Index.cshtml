@@ -36,7 +36,6 @@
         </div>
     }
     <p>
-        @*@Html.ActionLink("Luo uusi rekisteröityminen", "Create")*@
         <a class="btn btn-primary" href="~/Rekisteroitymiset/Create/">Lisää asiakas tilaisuuteen</a>
     </p>
     <table class="table table-striped">
@@ -44,7 +43,6 @@
             <th class="asiakas">Asiakas</th>
             <th>
                 @Html.ActionLink("Tilaisuus", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.currentFilter })
-                @*@Html.DisplayNameFor(model => model.Tilaisuudet.Nimi)*@
             </th>
             <th></th>
         </tr>
@@ -59,10 +57,6 @@
                     <a class="btn btn-primary" style="margin:2px;" href="~/Rekisteroitymiset/Edit/@item.RekisterointiID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     <a class="btn btn-primary" style="margin:2px;" href="~/Rekisteroitymiset/Details/@item.RekisterointiID"><i class="fa fa-list" aria-hidden="true"></i></a>
                     <a class="btn btn-danger" style="margin:2px;" href="~/Rekisteroitymiset/Delete/@item.RekisterointiID"><i class="fa fa-times" aria-hidden="true"></i></a>
-
-                    @*@Html.ActionLink("Muokkaa", "Edit", new { id=item.RekisterointiID }) |
-                        @Html.ActionLink("Lisätiedot", "Details", new { id=item.RekisterointiID }) |
-                        @Html.ActionLink("Poista", "Delete", new { id=item.RekisterointiID })*@
                 </td>
             </tr>
         }
