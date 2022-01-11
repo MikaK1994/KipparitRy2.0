@@ -24,6 +24,16 @@
         </script>
     }
 
+    <style>
+        .field-validation-valid {
+            display: none;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+    </style>
+
     @*RekisterointiPvm*@
 
     <h2>Lisää</h2>
@@ -73,7 +83,7 @@
                 @Html.LabelFor(model => model.RekisterointiPvm, "Liittymispäivä", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.RekisterointiPvm, new { htmlAttributes = new { @class = "datepicker" } })
-                    @Html.ValidationMessageFor(model => model.RekisterointiPvm, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.RekisterointiPvm, "Tuntematon päivämäärä.", new { @class = "text-danger" })
                 </div>
             </div>
 

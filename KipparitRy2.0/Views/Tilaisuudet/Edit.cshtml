@@ -5,6 +5,16 @@
         ViewBag.Title = "Edit";
     }
 
+    <style>
+        .field-validation-valid {
+            display: none;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+    </style>
+
     <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
 
     @section scripts {
@@ -57,7 +67,7 @@
                 @Html.LabelFor(model => model.Pvm, "Päivämäärä", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Pvm, new { htmlAttributes = new { @class = "datetimepicker" } })
-                    @Html.ValidationMessageFor(model => model.Pvm, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Pvm, "Tuntematon päivämäärä.", new { @class = "text-danger" })
                 </div>
             </div>
 
