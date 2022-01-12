@@ -46,7 +46,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Convert.ToDateTime(item.RekisterointiPvm).ToString("dd.MM.yyyy")</td>
+                <td>@Html.ValueFor(modelItem => item.RekisterointiPvm, "{0:d}")</td>
+                @*<td>@Convert.ToDateTime(item.RekisterointiPvm).ToString("dd.MM.yyyy")</td>*@
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
                 <td class="sposti">@Html.DisplayFor(modelItem => item.Sposti)</td>
                 <td class="osoite">@Html.DisplayFor(modelItem => item.Osoite), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postinumero), @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postitoimipaikka)</td>

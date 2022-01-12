@@ -17,6 +17,10 @@ namespace KipparitRy2._0.Models
         public Nullable<int> RekisterointiID { get; set;  }
         public bool EhdotBox { get; set; }
 
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy\\-MM\\-dd}", ApplyFormatInEditMode = true)]
+        //[Display(Name = "Rekisteröintipvm")]
+
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public Nullable<System.DateTime> RekisterointiPvm { get; set; }
         public virtual Postitoimipaikat Postitoimipaikat { get; set; }
