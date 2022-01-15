@@ -11,29 +11,21 @@ namespace KipparitRy2._0.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Tilaisuudet
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tilaisuudet()
         {
-            this.Jarjestajat = new HashSet<Jarjestajat>();
             this.Rekisteroitymiset = new HashSet<Rekisteroitymiset>();
         }
     
         public int TilaisuusID { get; set; }
         public string Nimi { get; set; }
-        public Nullable<int> JarjestajaID { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy H:mm}")]
+        public string Jarjestaja { get; set; }
         public Nullable<System.DateTime> Pvm { get; set; }
-
-        [Range(0, int.MaxValue, ErrorMessage = "Vain nolla ja positiiviset numerot ovat sallittuja.")]
         public Nullable<int> MaxMaara { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Jarjestajat> Jarjestajat { get; set; }
-        public virtual Jarjestajat Jarjestajat1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rekisteroitymiset> Rekisteroitymiset { get; set; }
     }

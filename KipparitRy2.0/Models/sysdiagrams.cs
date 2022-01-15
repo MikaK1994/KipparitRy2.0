@@ -12,11 +12,12 @@ namespace KipparitRy2._0.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Logins
+    public partial class sysdiagrams
     {
-        public int LoginID { get; set; }
-        public string Kayttajanimi { get; set; }
-        public string Salasana { get; set; }
-        public string ErrorMessage { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

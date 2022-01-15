@@ -142,7 +142,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AsiakkaatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JarjestajatController.cs" />
     <Compile Include="Controllers\PostitoimipaikatController.cs" />
     <Compile Include="Controllers\RekisteroitymisetController.cs" />
     <Compile Include="Controllers\TilaisuudetController.cs" />
@@ -150,9 +149,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Asiakkaat.cs">
-      <DependentUpon>KipparitModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Jarjestajat.cs">
       <DependentUpon>KipparitModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KipparitModel.Context.cs">
@@ -178,6 +174,9 @@
     </Compile>
     <Compile Include="Models\Rekisteroinutasiakas.cs" />
     <Compile Include="Models\Rekisteroitymiset.cs">
+      <DependentUpon>KipparitModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>KipparitModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tilaisuudet.cs">
@@ -285,6 +284,10 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <EntityDeploy Include="Models\KipparitModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KipparitModel.Designer.cs</LastGenOutput>
@@ -292,10 +295,6 @@
     <Content Include="Models\KipparitModel.edmx.diagram">
       <DependentUpon>KipparitModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -416,11 +415,6 @@
     <Content Include="Views\Asiakkaat\Details.cshtml" />
     <Content Include="Views\Asiakkaat\Edit.cshtml" />
     <Content Include="Views\Asiakkaat\Index.cshtml" />
-    <Content Include="Views\Jarjestajat\Create.cshtml" />
-    <Content Include="Views\Jarjestajat\Delete.cshtml" />
-    <Content Include="Views\Jarjestajat\Details.cshtml" />
-    <Content Include="Views\Jarjestajat\Edit.cshtml" />
-    <Content Include="Views\Jarjestajat\Index.cshtml" />
     <Content Include="Views\Rekisteroitymiset\Create.cshtml" />
     <Content Include="Views\Rekisteroitymiset\Delete.cshtml" />
     <Content Include="Views\Rekisteroitymiset\Details.cshtml" />

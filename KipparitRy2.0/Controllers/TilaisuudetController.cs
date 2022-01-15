@@ -13,7 +13,7 @@ namespace KipparitRy2._0.Controllers
 {
     public class TilaisuudetController : Controller
     {
-        private KipparitRyEntitiesX db = new KipparitRyEntitiesX();
+        private KipparitRyEntities db = new KipparitRyEntities ();
 
         // GET: Tilaisuudet
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? pagesize)
@@ -121,7 +121,7 @@ namespace KipparitRy2._0.Controllers
             }
             else
             {
-                ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
+                //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
                 return View();
             }
         }
@@ -140,7 +140,7 @@ namespace KipparitRy2._0.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
+            //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
             return View(tilaisuudet);
         }
 
@@ -162,7 +162,7 @@ namespace KipparitRy2._0.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
+                //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
                 return View(tilaisuudet);
             }
         }
@@ -180,7 +180,7 @@ namespace KipparitRy2._0.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
+            //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
             return View(tilaisuudet);
         }
 

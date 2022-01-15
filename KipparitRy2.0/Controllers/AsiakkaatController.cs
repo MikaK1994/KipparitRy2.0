@@ -13,7 +13,7 @@ namespace KipparitRy2._0.Controllers
 {
     public class AsiakkaatController : Controller
     {
-        private KipparitRyEntitiesX db = new KipparitRyEntitiesX();
+        private KipparitRyEntities db = new KipparitRyEntities();
 
         // GET: Asiakkaat
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? pagesize)

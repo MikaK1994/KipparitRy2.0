@@ -13,7 +13,7 @@ namespace KipparitRy2._0.Controllers
 {
     public class RekisteroitymisetController : Controller
     {
-        private KipparitRyEntitiesX db = new KipparitRyEntitiesX();
+        private KipparitRyEntities db = new KipparitRyEntities();
 
         // GET: Rekisteroitymiset
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? pagesize)

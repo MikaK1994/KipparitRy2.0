@@ -16,14 +16,6 @@
           <Property Name="PostiID" Type="int" />
           <Property Name="RekisterointiPvm" Type="datetime" />
         </EntityType>
-        <EntityType Name="Jarjestajat">
-          <Key>
-            <PropertyRef Name="JarjestajaID" />
-          </Key>
-          <Property Name="JarjestajaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nimi" Type="nvarchar" MaxLength="50" />
-          <Property Name="TilaisuusID" Type="int" />
-        </EntityType>
         <EntityType Name="Logins">
           <Key>
             <PropertyRef Name="LoginID" />
@@ -49,13 +41,23 @@
           <Property Name="TilaisuusID" Type="int" Nullable="false" />
           <Property Name="AsiakasID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Tilaisuudet">
           <Key>
             <PropertyRef Name="TilaisuusID" />
           </Key>
           <Property Name="TilaisuusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nimi" Type="nvarchar" MaxLength="50" />
-          <Property Name="JarjestajaID" Type="int" />
+          <Property Name="Jarjestaja" Type="nvarchar" MaxLength="50" />
           <Property Name="Pvm" Type="datetime" />
           <Property Name="MaxMaara" Type="int" />
         </EntityType>
@@ -68,18 +70,6 @@
             </Principal>
             <Dependent Role="Asiakkaat">
               <PropertyRef Name="PostiID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Jarjestajat_Tilaisuudet">
-          <End Role="Tilaisuudet" Type="Self.Tilaisuudet" Multiplicity="0..1" />
-          <End Role="Jarjestajat" Type="Self.Jarjestajat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tilaisuudet">
-              <PropertyRef Name="TilaisuusID" />
-            </Principal>
-            <Dependent Role="Jarjestajat">
-              <PropertyRef Name="TilaisuusID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -107,32 +97,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Tilaisuudet_Jarjestajat">
-          <End Role="Jarjestajat" Type="Self.Jarjestajat" Multiplicity="0..1" />
-          <End Role="Tilaisuudet" Type="Self.Tilaisuudet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jarjestajat">
-              <PropertyRef Name="JarjestajaID" />
-            </Principal>
-            <Dependent Role="Tilaisuudet">
-              <PropertyRef Name="JarjestajaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="KipparitRyModelStoreContainer">
           <EntitySet Name="Asiakkaat" EntityType="Self.Asiakkaat" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Jarjestajat" EntityType="Self.Jarjestajat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Postitoimipaikat" EntityType="Self.Postitoimipaikat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rekisteroitymiset" EntityType="Self.Rekisteroitymiset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tilaisuudet" EntityType="Self.Tilaisuudet" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Asiakkaat_Postitoimipaikat" Association="Self.FK_Asiakkaat_Postitoimipaikat">
             <End Role="Postitoimipaikat" EntitySet="Postitoimipaikat" />
             <End Role="Asiakkaat" EntitySet="Asiakkaat" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Jarjestajat_Tilaisuudet" Association="Self.FK_Jarjestajat_Tilaisuudet">
-            <End Role="Tilaisuudet" EntitySet="Tilaisuudet" />
-            <End Role="Jarjestajat" EntitySet="Jarjestajat" />
           </AssociationSet>
           <AssociationSet Name="FK_Rekisteroitymiset_Asiakkaat" Association="Self.FK_Rekisteroitymiset_Asiakkaat">
             <End Role="Asiakkaat" EntitySet="Asiakkaat" />
@@ -141,10 +115,6 @@
           <AssociationSet Name="FK_Rekisteroitymiset_Tilaisuudet" Association="Self.FK_Rekisteroitymiset_Tilaisuudet">
             <End Role="Tilaisuudet" EntitySet="Tilaisuudet" />
             <End Role="Rekisteroitymiset" EntitySet="Rekisteroitymiset" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tilaisuudet_Jarjestajat" Association="Self.FK_Tilaisuudet_Jarjestajat">
-            <End Role="Jarjestajat" EntitySet="Jarjestajat" />
-            <End Role="Tilaisuudet" EntitySet="Tilaisuudet" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -164,16 +134,6 @@
           <Property Name="RekisterointiPvm" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Postitoimipaikat" Relationship="Self.FK_Asiakkaat_Postitoimipaikat" FromRole="Asiakkaat" ToRole="Postitoimipaikat" />
           <NavigationProperty Name="Rekisteroitymiset" Relationship="Self.FK_Rekisteroitymiset_Asiakkaat" FromRole="Asiakkaat" ToRole="Rekisteroitymiset" />
-        </EntityType>
-        <EntityType Name="Jarjestajat">
-          <Key>
-            <PropertyRef Name="JarjestajaID" />
-          </Key>
-          <Property Name="JarjestajaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TilaisuusID" Type="Int32" />
-          <NavigationProperty Name="Tilaisuudet" Relationship="Self.FK_Jarjestajat_Tilaisuudet" FromRole="Jarjestajat" ToRole="Tilaisuudet" />
-          <NavigationProperty Name="Tilaisuudet1" Relationship="Self.FK_Tilaisuudet_Jarjestajat" FromRole="Jarjestajat" ToRole="Tilaisuudet" />
         </EntityType>
         <EntityType Name="Logins">
           <Key>
@@ -203,17 +163,25 @@
           <NavigationProperty Name="Asiakkaat" Relationship="Self.FK_Rekisteroitymiset_Asiakkaat" FromRole="Rekisteroitymiset" ToRole="Asiakkaat" />
           <NavigationProperty Name="Tilaisuudet" Relationship="Self.FK_Rekisteroitymiset_Tilaisuudet" FromRole="Rekisteroitymiset" ToRole="Tilaisuudet" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Tilaisuudet">
           <Key>
             <PropertyRef Name="TilaisuusID" />
           </Key>
           <Property Name="TilaisuusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="JarjestajaID" Type="Int32" />
+          <Property Name="Jarjestaja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Pvm" Type="DateTime" Precision="3" />
           <Property Name="MaxMaara" Type="Int32" />
-          <NavigationProperty Name="Jarjestajat" Relationship="Self.FK_Jarjestajat_Tilaisuudet" FromRole="Tilaisuudet" ToRole="Jarjestajat" />
-          <NavigationProperty Name="Jarjestajat1" Relationship="Self.FK_Tilaisuudet_Jarjestajat" FromRole="Tilaisuudet" ToRole="Jarjestajat" />
           <NavigationProperty Name="Rekisteroitymiset" Relationship="Self.FK_Rekisteroitymiset_Tilaisuudet" FromRole="Tilaisuudet" ToRole="Rekisteroitymiset" />
         </EntityType>
         <Association Name="FK_Asiakkaat_Postitoimipaikat">
@@ -240,30 +208,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Jarjestajat_Tilaisuudet">
-          <End Role="Tilaisuudet" Type="Self.Tilaisuudet" Multiplicity="0..1" />
-          <End Role="Jarjestajat" Type="Self.Jarjestajat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tilaisuudet">
-              <PropertyRef Name="TilaisuusID" />
-            </Principal>
-            <Dependent Role="Jarjestajat">
-              <PropertyRef Name="TilaisuusID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tilaisuudet_Jarjestajat">
-          <End Role="Jarjestajat" Type="Self.Jarjestajat" Multiplicity="0..1" />
-          <End Role="Tilaisuudet" Type="Self.Tilaisuudet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jarjestajat">
-              <PropertyRef Name="JarjestajaID" />
-            </Principal>
-            <Dependent Role="Tilaisuudet">
-              <PropertyRef Name="JarjestajaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Rekisteroitymiset_Tilaisuudet">
           <End Role="Tilaisuudet" Type="Self.Tilaisuudet" Multiplicity="1" />
           <End Role="Rekisteroitymiset" Type="Self.Rekisteroitymiset" Multiplicity="*" />
@@ -276,12 +220,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KipparitRyEntitiesX" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="KipparitRyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Asiakkaat" EntityType="Self.Asiakkaat" />
-          <EntitySet Name="Jarjestajat" EntityType="Self.Jarjestajat" />
           <EntitySet Name="Logins" EntityType="Self.Logins" />
           <EntitySet Name="Postitoimipaikat" EntityType="Self.Postitoimipaikat" />
           <EntitySet Name="Rekisteroitymiset" EntityType="Self.Rekisteroitymiset" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tilaisuudet" EntityType="Self.Tilaisuudet" />
           <AssociationSet Name="FK_Asiakkaat_Postitoimipaikat" Association="Self.FK_Asiakkaat_Postitoimipaikat">
             <End Role="Postitoimipaikat" EntitySet="Postitoimipaikat" />
@@ -290,14 +234,6 @@
           <AssociationSet Name="FK_Rekisteroitymiset_Asiakkaat" Association="Self.FK_Rekisteroitymiset_Asiakkaat">
             <End Role="Asiakkaat" EntitySet="Asiakkaat" />
             <End Role="Rekisteroitymiset" EntitySet="Rekisteroitymiset" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Jarjestajat_Tilaisuudet" Association="Self.FK_Jarjestajat_Tilaisuudet">
-            <End Role="Tilaisuudet" EntitySet="Tilaisuudet" />
-            <End Role="Jarjestajat" EntitySet="Jarjestajat" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tilaisuudet_Jarjestajat" Association="Self.FK_Tilaisuudet_Jarjestajat">
-            <End Role="Jarjestajat" EntitySet="Jarjestajat" />
-            <End Role="Tilaisuudet" EntitySet="Tilaisuudet" />
           </AssociationSet>
           <AssociationSet Name="FK_Rekisteroitymiset_Tilaisuudet" Association="Self.FK_Rekisteroitymiset_Tilaisuudet">
             <End Role="Tilaisuudet" EntitySet="Tilaisuudet" />
@@ -309,7 +245,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="KipparitRyModelStoreContainer" CdmEntityContainer="KipparitRyEntitiesX">
+        <EntityContainerMapping StorageEntityContainer="KipparitRyModelStoreContainer" CdmEntityContainer="KipparitRyEntities">
           <EntitySetMapping Name="Asiakkaat">
             <EntityTypeMapping TypeName="KipparitRyModel.Asiakkaat">
               <MappingFragment StoreEntitySet="Asiakkaat">
@@ -319,15 +255,6 @@
                 <ScalarProperty Name="Osoite" ColumnName="Osoite" />
                 <ScalarProperty Name="PostiID" ColumnName="PostiID" />
                 <ScalarProperty Name="RekisterointiPvm" ColumnName="RekisterointiPvm" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Jarjestajat">
-            <EntityTypeMapping TypeName="KipparitRyModel.Jarjestajat">
-              <MappingFragment StoreEntitySet="Jarjestajat">
-                <ScalarProperty Name="JarjestajaID" ColumnName="JarjestajaID" />
-                <ScalarProperty Name="Nimi" ColumnName="Nimi" />
-                <ScalarProperty Name="TilaisuusID" ColumnName="TilaisuusID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -359,12 +286,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KipparitRyModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Tilaisuudet">
             <EntityTypeMapping TypeName="KipparitRyModel.Tilaisuudet">
               <MappingFragment StoreEntitySet="Tilaisuudet">
                 <ScalarProperty Name="TilaisuusID" ColumnName="TilaisuusID" />
                 <ScalarProperty Name="Nimi" ColumnName="Nimi" />
-                <ScalarProperty Name="JarjestajaID" ColumnName="JarjestajaID" />
+                <ScalarProperty Name="Jarjestaja" ColumnName="Jarjestaja" />
                 <ScalarProperty Name="Pvm" ColumnName="Pvm" />
                 <ScalarProperty Name="MaxMaara" ColumnName="MaxMaara" />
               </MappingFragment>

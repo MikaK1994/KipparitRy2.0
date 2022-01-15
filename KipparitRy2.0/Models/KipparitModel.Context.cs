@@ -13,10 +13,10 @@ namespace KipparitRy2._0.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KipparitRyEntitiesX : DbContext
+    public partial class KipparitRyEntities : DbContext
     {
-        public KipparitRyEntitiesX()
-            : base("name=KipparitRyEntitiesX")
+        public KipparitRyEntities()
+            : base("name=KipparitRyEntities")
         {
         }
     
@@ -26,10 +26,10 @@ namespace KipparitRy2._0.Models
         }
     
         public virtual DbSet<Asiakkaat> Asiakkaat { get; set; }
-        public virtual DbSet<Jarjestajat> Jarjestajat { get; set; }
         public virtual DbSet<Logins> Logins { get; set; }
         public virtual DbSet<Postitoimipaikat> Postitoimipaikat { get; set; }
         public virtual DbSet<Rekisteroitymiset> Rekisteroitymiset { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tilaisuudet> Tilaisuudet { get; set; }
     }
 }

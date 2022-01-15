@@ -9,7 +9,7 @@ namespace KipparitRy2._0.Controllers
 {
     public class HomeController : Controller
     {
-        private KipparitRyEntitiesX db = new KipparitRyEntitiesX();
+        private KipparitRyEntities db = new KipparitRyEntities();
         
         public ActionResult Login()
         {

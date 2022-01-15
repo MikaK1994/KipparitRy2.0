@@ -4,17 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b09c609037d842eca4b2d89ffafdb2ac" Name="Diagram1">
-        <EntityTypeShape EntityType="KipparitRyModel.Asiakkaat" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="KipparitRyModel.Jarjestajat" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KipparitRyModel.Logins" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KipparitRyModel.Postitoimipaikat" Width="1.5" PointX="1.5" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="KipparitRyModel.Rekisteroitymiset" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KipparitRyModel.Tilaisuudet" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+      <Diagram DiagramId="637faf5957f142358b33070e1409cf02" Name="Diagram1">
+        <EntityTypeShape EntityType="KipparitRyModel.Asiakkaat" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KipparitRyModel.Logins" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KipparitRyModel.Postitoimipaikat" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KipparitRyModel.Rekisteroitymiset" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KipparitRyModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KipparitRyModel.Tilaisuudet" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
         <AssociationConnector Association="KipparitRyModel.FK_Asiakkaat_Postitoimipaikat" ManuallyRouted="false" />
         <AssociationConnector Association="KipparitRyModel.FK_Rekisteroitymiset_Asiakkaat" ManuallyRouted="false" />
-        <AssociationConnector Association="KipparitRyModel.FK_Jarjestajat_Tilaisuudet" ManuallyRouted="false" />
-        <AssociationConnector Association="KipparitRyModel.FK_Tilaisuudet_Jarjestajat" ManuallyRouted="false" />
         <AssociationConnector Association="KipparitRyModel.FK_Rekisteroitymiset_Tilaisuudet" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
