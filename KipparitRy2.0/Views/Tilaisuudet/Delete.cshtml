@@ -13,7 +13,7 @@
             <dt>Tilaisuus</dt>
             <dd>@Html.DisplayFor(model => model.Nimi)</dd>
             <dt>Päivämäärä</dt>
-            <dd>@Html.DisplayFor(model => model.Pvm)</dd>
+            <dd>@Convert.ToDateTime(Model.Pvm).ToString("dd.MM.yyyy klo. HH:mm")</dd>
             <dt>Max osallistujat</dt>
             <dd>@Html.DisplayFor(model => model.MaxMaara)</dd>
             <dt>Järjestäjä</dt>
