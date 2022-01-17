@@ -19,7 +19,7 @@
             <dt>@Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)</dt>
             <dd>@Html.DisplayFor(model => model.Postitoimipaikat.Postinumero), @Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>
             <dt>Liittymispäivä</dt>
-            <dd>@Html.DisplayFor(model => model.RekisterointiPvm)</dd>
+            <dd>@Convert.ToDateTime(Model.RekisterointiPvm).ToString("dd.MM.yyyy")</dd>
         </dl>
         <div class="text-danger">
             @ViewBag.Error

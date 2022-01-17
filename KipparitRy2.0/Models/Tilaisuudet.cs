@@ -11,7 +11,8 @@ namespace KipparitRy2._0.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tilaisuudet
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,11 +22,14 @@ namespace KipparitRy2._0.Models
         }
     
         public int TilaisuusID { get; set; }
+        [Required(ErrorMessage = "Nimi vaaditaan.")]
         public string Nimi { get; set; }
         public string Jarjestaja { get; set; }
+        [Required(ErrorMessage = "P‰iv‰m‰‰r‰ vaaditaan.")]
         public Nullable<System.DateTime> Pvm { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Vain nolla ja positiiviset numerot ovat sallittuja.")]
         public Nullable<int> MaxMaara { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rekisteroitymiset> Rekisteroitymiset { get; set; }
     }

@@ -61,6 +61,7 @@ namespace KipparitRy2._0.Controllers
             List<Tilaisuudet> tilaisuusList = db.Tilaisuudet.ToList();
             ViewBag.TilaisuusID = new SelectList(tilaisuusList.OrderBy(s => s.Nimi), "TilaisuusID", "Nimi");
 
+
             return View();
         }
 
@@ -90,7 +91,7 @@ namespace KipparitRy2._0.Controllers
                 int? maxMaara = tilaisuus.MaxMaara;
                 if(maxMaara == ilmoittautumiset || maxMaara < ilmoittautumiset)
                 {
-                    msg = "Tilaisuuden osallistujamäärä on valitettavasti täynnä";
+                    msg = "Tilaisuuden osallistujamäärä on valitettavasti täynnä.";
                     TempData["ErrorMessage"] = msg;
                     return RedirectToAction("Index");
                 }

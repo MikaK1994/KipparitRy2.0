@@ -11,7 +11,8 @@ namespace KipparitRy2._0.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Asiakkaat
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,15 @@ namespace KipparitRy2._0.Models
         }
     
         public int AsiakasID { get; set; }
+        [Required(ErrorMessage = "Nimi vaaditaan.")]
         public string Nimi { get; set; }
         public string Sposti { get; set; }
+        [Required(ErrorMessage = "Osoite vaaditaan.")]
         public string Osoite { get; set; }
         public Nullable<int> PostiID { get; set; }
+
+        [Required(ErrorMessage = "Liittymisp‰iv‰m‰‰r‰ vaaditaan.")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> RekisterointiPvm { get; set; }
     
         public virtual Postitoimipaikat Postitoimipaikat { get; set; }

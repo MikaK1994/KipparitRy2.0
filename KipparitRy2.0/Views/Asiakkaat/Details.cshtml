@@ -16,7 +16,7 @@
             <dt>@Html.DisplayNameFor(model => model.Osoite)</dt>
             <dd>@Html.DisplayFor(model => model.Osoite), @Html.DisplayFor(model => model.Postitoimipaikat.Postinumero), @Html.DisplayFor(model => model.Postitoimipaikat.Postitoimipaikka)</dd>
             <dt>Liittymispäivä</dt>
-            <dd>@Html.ValueFor(model => model.RekisterointiPvm, "{0:d}")</dd>
+            <dd>@Convert.ToDateTime(Model.RekisterointiPvm).ToString("dd.MM.yyyy")</dd>
             @*<dd>@Html.DisplayFor(model => model.RekisterointiPvm)</dd>*@
         </dl>
     </div>
