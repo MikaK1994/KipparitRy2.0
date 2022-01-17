@@ -121,7 +121,7 @@ namespace KipparitRy2._0.Controllers
             }
             else
             {
-                //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
+                //ViewBag.Jarjestaja = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "Jarjestaja", "Nimi");
                 return View();
             }
         }
@@ -131,7 +131,7 @@ namespace KipparitRy2._0.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TilaisuusID,Nimi,JarjestajaID,Pvm,MaxMaara")] Tilaisuudet tilaisuudet)
+        public ActionResult Create([Bind(Include = "TilaisuusID,Nimi,Jarjestaja,Pvm,MaxMaara")] Tilaisuudet tilaisuudet)
         {
             if (ModelState.IsValid)
             {
@@ -140,7 +140,7 @@ namespace KipparitRy2._0.Controllers
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
+            //ViewBag.Jarjestaja = new SelectList(db.Jarjestajat, "Jarjestaja", "Nimi", tilaisuudet.Jarjestaja);
             return View(tilaisuudet);
         }
 
@@ -162,7 +162,7 @@ namespace KipparitRy2._0.Controllers
                 {
                     return HttpNotFound();
                 }
-                //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "JarjestajaID", "Nimi");
+                //ViewBag.Jarjestaja = new SelectList(db.Jarjestajat.OrderBy(s => s.Nimi), "Jarjestaja", "Nimi");
                 return View(tilaisuudet);
             }
         }
@@ -172,7 +172,7 @@ namespace KipparitRy2._0.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TilaisuusID,Nimi,JarjestajaID,Pvm,MaxMaara")] Tilaisuudet tilaisuudet)
+        public ActionResult Edit([Bind(Include = "TilaisuusID,Nimi,Jarjestaja,Pvm,MaxMaara")] Tilaisuudet tilaisuudet)
         {
             if (ModelState.IsValid)
             {
@@ -180,7 +180,7 @@ namespace KipparitRy2._0.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.JarjestajaID = new SelectList(db.Jarjestajat, "JarjestajaID", "Nimi", tilaisuudet.JarjestajaID);
+            //ViewBag.Jarjestaja = new SelectList(db.Jarjestajat, "Jarjestaja", "Nimi", tilaisuudet.Jarjestaja);
             return View(tilaisuudet);
         }
 

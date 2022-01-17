@@ -67,7 +67,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Nimi)</td>
                 <td class="paiva">@Convert.ToDateTime(item.Pvm).ToString("dd.MM.yyyy klo. HH:mm")</td>
                 <td class="max">@Html.DisplayFor(modelItem => item.MaxMaara)</td>
-                <td>@Html.DisplayFor(modelItem => item.Jarjestajat1.Nimi)</td>
+                <td>@Html.DisplayFor(modelItem => item.Jarjestaja)</td>
                 <td align="right" class="btn-group1">
                     <a class="btn btn-primary" style="margin:2px;" href="~/Tilaisuudet/Edit/@item.TilaisuusID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     <a class="btn btn-primary" style="margin:2px;" href="~/Tilaisuudet/Details/@item.TilaisuusID"><i class="fa fa-list" aria-hidden="true"></i></a>
