@@ -1,20 +1,29 @@
-﻿<div class="margin" style="background-color:white;">
+﻿<style>
+    .margin {
+        padding: 20px;
+        margin: 70px;
+        border: 2px solid #346beb;
+        background-color: whitesmoke;
+    }
+
+    @@media (max-width : 967px) {
+        .margin {
+            float: none;
+            text-align: center;
+            margin: 0 !important;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+</style>
+
+<div class="margin" style="background-color:white;">
     <div class="center" style="padding:4% 10%; text-align:left;">
         @{
             ViewBag.Title = "TIETOSUOJAILMOITUS";
         }
 
-        <h2>@ViewBag.Title</h2>
         <h3>@ViewBag.Message</h3>
-
-        <style>
-            .margin {
-                padding: 20px;
-                margin: 70px;
-                border: 2px solid #346beb;
-                background-color: whitesmoke;
-            }
-        </style>
 
         <h4>1. Rekisterinpitäjä</h4>
         <ul style="list-style-type:none;">
